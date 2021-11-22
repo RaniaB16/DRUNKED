@@ -1,4 +1,4 @@
 class Beverage < ApplicationRecord
-  belongs_to :meeting_id
-  belongs_to :drink_id
+  belongs_to :meeting
+  belongs_to :drink
 end
