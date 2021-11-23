@@ -17,7 +17,7 @@ puts "Data destroy"
 
 puts "Creating users..."
 
-user = User.create(
+cesar = User.create(
   email: "test@gmail.com",
   password: "123456",
   first_name: "cesar",
