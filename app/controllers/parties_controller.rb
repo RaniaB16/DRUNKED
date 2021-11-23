@@ -30,7 +30,7 @@ class PartiesController < ApplicationController
   def update
     @party = find_party
     authorize(@party)
-    @party.update(params[:party])
+    @party.update(party_params)
   end
 
   private
