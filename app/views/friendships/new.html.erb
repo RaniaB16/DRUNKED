@@ -1,0 +1,11 @@
+<h1>SELECT YOUR FRIENDS</h1>
+
+<%= form_tag add_friends_path, method: :get do |f| %>
+  <% @users.each do |user| %>
+    <%= label_tag user.first_name do %>
+      <%= user.first_name %>
+      <%= check_box_tag "users[]", user.id %>
+    <% end %>
+  <% end %>
+  <%= submit_tag "save" %>
+<% end %>
