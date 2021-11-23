@@ -26,4 +26,5 @@ class MeetingsController < ApplicationController
   def meeting_params
     params.require(:meeting).permit(:user_id, :party_id)
   end
+
 end
