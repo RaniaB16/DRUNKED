@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 puts "Deleting all data..."
 
+Friendship.destroy_all
 Meeting.destroy_all
 Drink.destroy_all
 Party.destroy_all
@@ -27,6 +27,51 @@ cesar = User.create(
   age: 24
 )
 
+user1 = User.create!(
+  email: "test1@gmail.com",
+  password: "123456",
+  first_name: "albin",
+  last_name: "castagne",
+  sex: "men",
+  weight: 95,
+  age: 24
+)
+
+user2 = User.create!(
+  email: "test2@gmail.com",
+  password: "123456",
+  first_name: "sarah",
+  last_name: "castagne",
+  sex: "men",
+  weight: 95,
+  age: 24
+)
+
+Friendship.create!(user_one_id: cesar.id, user_two_id: user1.id)
+Friendship.create!(user_one_id: cesar.id, user_two_id: user2.id)
+
+party = Party.create!(
+  name: "Party test",
+  user: cesar
+)
+
+party1 = Party.create!(
+  name: "Party test 1",
+  user: cesar
+)
+
+party2 = Party.create!(
+  name: "Wagolympiades",
+  user: cesar
+)
+
+meeting = Meeting.create!(
+  user: cesar,
+  party: party,
+  start_date: Date.today,
+  end_date: Date.today + 1
+)
+  
 elsa = User.create(
   first_name: "Elsa",
   last_name: "Paulin",
@@ -37,6 +82,7 @@ elsa = User.create(
   age: 23,
   weight: 55
 )
+
 benjamin = User.create(
   first_name: "Benjamin",
   last_name: "Crudo",
