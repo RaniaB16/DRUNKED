@@ -1,26 +1,45 @@
 class PartiesController < ApplicationController
-  skip_before_action :authenticate_user!
+
+  def index
+    @parties = policy_scope(Party).where(user: current_user)
+  end
 
   def new
     @party = Party.new
     authorize(@party)
   end
 
+  def show
+    @party = find_party
+    authorize(@party)
+  end
+
   def create
     @party = Party.new(party_params)
-    authorize @party
     @user = current_user
     @party.user_id = @user.id
-    if @party.save
-      redirect_to dashboard_path
-    else
-      render :new
-    end
+    authorize(@party)
+  end
+
+  def destroy
+    @party = find_party
+    authorize(@party)
+    @party.destroy
+  end
+
+  def update
+    @party = find_party
+    authorize(@party)
+    @party.update(party_params)
   end
 
   private
 
+  def find_party
+    @party = Party.find(params[:id])
+  end
+
   def party_params
-  params.require(:party).permit(:name, user_id)
+    params.require(:party).permit(:name, :user_id)
   end
 end
