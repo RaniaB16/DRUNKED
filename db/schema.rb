@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_145657) do
     t.string "brand"
     t.integer "quantity"
     t.string "alcool_type"
-    t.integer "alcool_degree"
+    t.float "alcool_degree"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

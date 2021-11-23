@@ -17,8 +17,13 @@ class PartiesController < ApplicationController
   def create
     @party = Party.new(party_params)
     @user = current_user
-    @party.user_id = @user.id
+    @party.user = @user
     authorize(@party)
+    if @party.save
+      redirect_to party_path(@party)
+    else
+      render :new
+    end
   end
 
   def destroy
