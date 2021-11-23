@@ -13,7 +13,6 @@ class MeetingsController < ApplicationController
     @user = current_user
     @meeting.party = Party.find(params[:party_id])
     @meeting.user = @user
-    raise
     if @meeting.save
       redirect_to dashboard_path
     else
