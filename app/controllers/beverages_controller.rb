@@ -1,23 +1,19 @@
 class BeveragesController < ApplicationController
-  def new
-    @beverage = Beverage.new
-    authorize(@beverage)
-  end
 
   def create
     @beverage = Beverage.new(beverage_params)
     authorize @beverage
-    @drink = current_drink
     @beverage.drink_id = @drink.id
     if @beverage.save
-      redirect_to dashboard_path
+      redirect_to show_path
     else
       render :new
     end
   end
+
   private
 
-  def party_params
+  def beverage_params
     params.require(:beverage).permit(:meeting_id, :drink_id)
   end
 end

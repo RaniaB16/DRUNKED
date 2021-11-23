@@ -7,10 +7,13 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    @meeting = Meeting.new(party_params)
+    @meeting = Meeting.new(meeting_params)
     authorize @meeting
+    #Attente de la show pour voir si methode fonctionne
     @user = current_user
-    @meeting.party_id = @party.id
+    @meeting.party = Party.find(params[:party_id])
+    @meeting.user = @user
+    raise
     if @meeting.save
       redirect_to dashboard_path
     else
@@ -20,7 +23,7 @@ class MeetingsController < ApplicationController
 
   private
 
-  def party_params
-    params.require(:meeting).permit(:user_id, :party_id, :start_date, :end_date, :approved)
+  def meeting_params
+    params.require(:meeting).permit(:user_id, :party_id)
   end
 end
