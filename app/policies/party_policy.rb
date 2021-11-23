@@ -1,8 +1,9 @@
 class PartyPolicy < ApplicationPolicy
   class Scope < Scope
 
-  def resolve
-    scope.all
+    def resolve
+      scope.all
+    end
   end
 
   def new
@@ -13,5 +14,7 @@ class PartyPolicy < ApplicationPolicy
     return true
   end
 
+  def show?
+    record.user == user
   end
 end

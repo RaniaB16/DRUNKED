@@ -1,3 +1,4 @@
 <% @parties.each do |party| %>
 <%= party.name %>
+<%= link_to "party", party_path(party) %>
 <% end %>
