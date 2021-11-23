@@ -8,6 +8,12 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :sex,
+                as: :radio_buttons,
+                collection: ['man', 'woman'],
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
