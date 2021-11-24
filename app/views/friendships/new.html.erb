@@ -2,10 +2,17 @@
 
 <%= form_tag add_friends_path, method: :get do |f| %>
   <% @users.each do |user| %>
-    <%= label_tag user.first_name do %>
-      <%= user.first_name %>
-      <%= check_box_tag "users[]", user.id %>
+     <% if current_user.friends.include? user %>
+      <%= label_tag user do %>
+      <%= user.full_name %>
+      <%= check_box_tag "users[]", user.id, checked = true %>
+      <% end %>
+      <% else %>
+      <%= label_tag user do %>
+      <%= user.full_name %>
+      <%= check_box_tag "users[]", user.id, checked = false %>
+      <% end %>
     <% end %>
   <% end %>
-  <%= submit_tag "save" %>
+  <%= submit_tag "Save" %>
 <% end %>
