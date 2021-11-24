@@ -1,4 +1,10 @@
-<h1>Drunked</h1>
-<p>Drink and Drive home safely</p>
-<%= link_to "Login", new_user_session_path %>
-<%= link_to "Sign up", new_user_registration_path %>
+<div class="landing-container container">
+    <div class= "text-container">
+      <h1>Drunked.</h1>
+      <h2>Drink and Drive home safely.</h2>
+  </div>
+  <div class="btn_landing">
+    <%= link_to "Login", new_user_session_path, class: "btn-drunked btn-medium" %>
+    <%= link_to "Signup", new_user_registration_path, class: "btn-drunked btn-medium" %>
+  </div>
+</div>

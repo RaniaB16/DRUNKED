@@ -1,0 +1,34 @@
+.btn-drunked {
+  color: #55CFB3;
+  border: 3px solid #3CC4C9;
+  background: white;
+  padding: 8px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  margin: 11px;
+    /* text-align: center; */
+  justify-content: center;
+}
+.btn_landing {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.btn-drunked:active {
+  opacity: 0.5;
+}
+
+
+.btn-small {
+  width: 25%;
+}
+
+.btn-medium {
+  width: 50%;
+}
+
+.btn-big {
+  width: 100%;
+}
