@@ -1,5 +1,4 @@
 class PartiesController < ApplicationController
-
   def index
     @parties = policy_scope(Party).where(user: current_user)
   end
@@ -20,23 +19,24 @@ class PartiesController < ApplicationController
     @party.user = @user
     authorize(@party)
     if @party.save
+      Meeting.create(user: current_user, party: @party)
       redirect_to party_path(@party)
     else
       render :new
     end
   end
 
-  def destroy
-    @party = find_party
-    authorize(@party)
-    @party.destroy
-  end
+  # def destroy
+  #   @party = find_party
+  #   authorize(@party)
+  #   @party.destroy
+  # end
 
-  def update
-    @party = find_party
-    authorize(@party)
-    @party.update(party_params)
-  end
+  # def update
+  #   @party = find_party
+  #   authorize(@party)
+  #   @party.update(party_params)
+  # end
 
   private
 
@@ -45,6 +45,6 @@ class PartiesController < ApplicationController
   end
 
   def party_params
-    params.require(:party).permit(:name, :user_id)
+    params.require(:party).permit(:name, user_ids: [])
   end
 end
