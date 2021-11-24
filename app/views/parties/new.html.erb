@@ -1,4 +1,6 @@
 <%= simple_form_for(@party) do |f| %>
   <%= f.input :name %>
+  <%#= f.collection_check_boxes :user_id, current_user.friends, :id, :user_two %>
+  <%= f.input :user_id, as: :check_boxes, collection: current_user.friends.map { |e| [e.full_name, e.id] } %>
   <%= f.submit %>
 <% end %>
