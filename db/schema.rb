@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_135218) do
+ActiveRecord::Schema.define(version: 2021_11_23_163050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_11_23_135218) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_one_id"
+    t.bigint "user_two_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_one_id"], name: "index_friendships_on_user_one_id"
+    t.index ["user_two_id"], name: "index_friendships_on_user_two_id"
+  end
+
   create_table "meetings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "party_id", null: false
@@ -50,6 +59,15 @@ ActiveRecord::Schema.define(version: 2021_11_23_135218) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_parties_on_user_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,6 +89,8 @@ ActiveRecord::Schema.define(version: 2021_11_23_135218) do
 
   add_foreign_key "beverages", "drinks"
   add_foreign_key "beverages", "meetings"
+  add_foreign_key "friendships", "users", column: "user_one_id"
+  add_foreign_key "friendships", "users", column: "user_two_id"
   add_foreign_key "meetings", "parties"
   add_foreign_key "meetings", "users"
 end
