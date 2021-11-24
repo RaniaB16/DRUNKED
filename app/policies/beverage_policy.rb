@@ -3,14 +3,13 @@ class BeveragePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def new
-      create?
-    end
+  def new
+    create?
+  end
 
-    def create?
-      return true
-    end
-
+  def create?
+    return true
   end
 end

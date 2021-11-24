@@ -10,6 +10,8 @@ class PartiesController < ApplicationController
 
   def show
     @party = find_party
+    @beverage = Beverage.new
+    @meeting = @party.meetings.find_by(user_id: current_user.id)
     authorize(@party)
   end
 

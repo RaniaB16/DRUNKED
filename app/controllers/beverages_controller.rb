@@ -1,11 +1,13 @@
 class BeveragesController < ApplicationController
 
   def create
+    @drink = Drink.find(params[:beverage][:drink_id])
+    @meeting = Meeting.find(params[:beverage][:meeting_id])
     @beverage = Beverage.new(beverage_params)
-    authorize @beverage
-    @beverage.drink_id = @drink.id
-    if @beverage.save
-      redirect_to show_path
+    @beverage.drink = @drink
+    authorize(@beverage)
+    if @beverage.save!
+      redirect_to request.referer
     else
       render :new
     end
