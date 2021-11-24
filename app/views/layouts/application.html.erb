@@ -13,9 +13,12 @@
   </head>
 
   <body>
-     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="main_wrapper">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <%#= render 'shared/footer' unless controller.controller_name === "pages" && controller.action_name === "dashboard"  %>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
