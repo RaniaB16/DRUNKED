@@ -1,5 +1,5 @@
 </h1><%="My last Parties" %><h1>
-<% Party.last(3).each do |party| %>
+<% current_user.parties.last(3).each do |party| %>
   <h5><%= party.name %></h5>
 <% end %>
 
