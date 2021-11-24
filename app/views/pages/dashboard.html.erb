@@ -6,7 +6,7 @@
 <h1><%= "My drinking buddies" %></h1>
 
 <% current_user.friendships.each do |friendship| %>
-<%= friendship.user_two.first_name %>
+<%= friendship.user_two.full_name %>
 <% end %>
 
 
