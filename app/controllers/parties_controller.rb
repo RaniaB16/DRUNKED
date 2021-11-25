@@ -31,7 +31,6 @@ class PartiesController < ApplicationController
     else
       render :new
     end
-    raise
   end
 
   # def destroy
