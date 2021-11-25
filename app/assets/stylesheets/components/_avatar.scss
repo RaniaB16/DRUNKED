@@ -18,3 +18,48 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.round-buddy {
+  margin-right: 0px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: white;
+
+}
+
+.rd-purple {
+  background-color: #e2afff;
+}
+
+.rd-yellow {
+  background-color: #faf3dd;
+}
+
+.rd-blue {
+  background-color: #aed9e0;
+}
+
+.rd-pink {
+  background-color: #ffa69e;
+}
+
+.rd-acqua {
+  background-color: #b8f2e6;
+}
+
+.rd-blue-clr {
+  background-color: #48cae4;
+}
+
+.rd-orange {
+  background-color: #f4a261;
+}
+
+.rd-red {
+  background-color: #e63946;
+}

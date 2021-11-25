@@ -8,6 +8,7 @@
 puts "Deleting all data..."
 
 Friendship.destroy_all
+Beverage.destroy_all
 Meeting.destroy_all
 Drink.destroy_all
 Party.destroy_all
@@ -146,10 +147,10 @@ puts "Parties created"
 
 puts "Creating drinks..."
 
-Drink.create!(alcool_type: "wine", alcool_degree: 0.10, quantity: 125)
+Drink.create!(alcool_type: "wine", alcool_degree: 0.12, quantity: 125)
 Drink.create!(alcool_type: "beer", alcool_degree: 0.05, quantity: 250)
 Drink.create!(alcool_type: "spirits", alcool_degree: 0.40, quantity: 40)
-Drink.create!(alcool_type: "champagne", alcool_degree: 0.10, quantity: 12)
+Drink.create!(alcool_type: "champagne", alcool_degree: 0.12, quantity: 125)
 Drink.create!(alcool_type: "whiskey", alcool_degree: 0.40, quantity: 30)
 Drink.create(alcool_type: "pastis", alcool_degree: 0.45, quantity: 30)
 

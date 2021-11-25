@@ -1,8 +1,8 @@
 .baner-dash {
   color:  #55CFB3;
-  border: 3px solid #ffb3c1;
-  background:  #fec5bb;
-  padding: 8px 24px;
+  border: 3px solid #55CFB3;
+  background:  white;
+  padding: 8px 70px;
   border-radius: 10px;
   text-decoration: none;
   display: flex;
@@ -13,5 +13,13 @@
 }
 
 h5 {
-  text-align:left;
+  text-align:center;
+}
+
+
+.baner-dash h5 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: #55CFB3;
 }
