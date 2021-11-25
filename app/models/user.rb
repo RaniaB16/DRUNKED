@@ -26,6 +26,7 @@ class User < ApplicationRecord
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
+
   def sex_ratio
     if sex == "men"
       0.7
@@ -43,5 +44,9 @@ class User < ApplicationRecord
 
   def user_sum
     details[:weight] * details[:sex_ratio]
+  end
+
+  def initials
+    "#{first_name.chr}#{last_name.chr}".upcase
   end
 end
