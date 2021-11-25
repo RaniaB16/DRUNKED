@@ -14,7 +14,7 @@
 
   <body>
     <div class="main_wrapper">
-      <%= render 'shared/navbar' unless action_name == "landing" %>
+      <%= render 'shared/navbar' unless action_name == "landing" || controller_name == 'sessions' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
       <%= render 'shared/footer' unless action_name == "landing" || controller_name == 'sessions' %>
