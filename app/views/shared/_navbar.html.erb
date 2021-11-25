@@ -1,9 +1,11 @@
 <div class="navbar-lewagon ">
   <% if user_signed_in? %>
-    <p>Welcome</p>
-    <span class="Welcome"><%= current_user.first_name %></span>
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= current_user.first_name.chr %>
+    <div class="link-friends">
+      <%= link_to "+ Add friends", new_friendship_path %>
+    </div>
+    <span class="Welcome">Welcome <%=  current_user.first_name %></span>
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= current_user.first_name.chr %>
+      <% end %>
     <% end %>
-  <% end %>
 </div>
