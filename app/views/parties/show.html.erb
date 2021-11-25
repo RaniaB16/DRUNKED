@@ -1,10 +1,19 @@
-<div class="">
-<p>En attendant un vrai graph si Dieu veut... </p>
- <%= image_tag('graph.png') %>
+<div class="show-container">
+  <div class="graph-show">
+    <p>En attendant un vrai graph si Dieu veut... </p>
+     <%= image_tag('graph.png') %>
+  </div>
+    <div class="alcool-rate">
+    <h1>Alcohol rate
+      <%= @rate %></h1>
+    </div>
+
 <!-- button link to Modal -->
 <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add a drink
 </button>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -23,7 +32,6 @@
           <% end %>
         </div>
 
-
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
@@ -39,16 +47,11 @@
             </div>
           </div>
         </div>
-
-
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-<div class="alcool-rate">
-<%= @rate %>
-</div>
-</div>
