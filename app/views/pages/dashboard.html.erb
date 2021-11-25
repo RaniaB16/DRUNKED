@@ -3,20 +3,20 @@
   <div class="baner-dash">
     <div class="text-baner">
       <% current_user.parties.last(3).each do |party| %>
-      <h5><%= party.name %></h5>
+      <p><%= link_to party.name, party_path(party)  %></p>
       <% end %>
     </div>
   </div>
-
 <h1><%= "My drinking buddies" %></h1>
 <% array = ["rd-purple, rd-pink, "] %>
 <% current_user.friendships.each do |friendship| %>
 <%= friendship.user_two.full_name %>
 <% end %>
-
-
-<h1><%= "My badges" %></h1>
-<%= link_to "New party", new_party_path %>
-<%= link_to "Edit my profil", edit_user_registration_path %>
-<%= link_to "My parties", parties_path %>
+<hr>
+<ul>
+<li><%= link_to "New party", new_party_path %></li>
+<li><%= link_to "Edit my profil", edit_user_registration_path %></li>
+<li><%= link_to "My parties", parties_path %></li>
+<li><%= link_to "Add friends", new_friendship_path %></li>
+</ul>
 </div>

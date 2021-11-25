@@ -3,3 +3,4 @@
   <%= f.input :user_ids, as: :check_boxes, collection: current_user.friends.map { |e| [e.full_name, e.id] } %>
   <%= f.submit %>
 <% end %>
+<%= link_to "Cancel", dashboard_path %>
