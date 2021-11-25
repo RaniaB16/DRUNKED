@@ -1,5 +1,6 @@
 .tag-item {
   display: inline-block;
+
 }
 
 .tag-selector {
@@ -10,17 +11,60 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 1rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
   background-color: #ECEAFF;
   color: #036666;
   border: 1px solid #036666;
-  margin-right: 0.6rem;
+  margin-right: 1rem;
   margin-bottom: 0.4rem;
+    box-shadow: 0 2px 0 2px #888;
+
 }
 
 .tag-selector:checked + label {
   background-color: #036666;
   color: white;
+}
+
+.new-container {
+margin: 0 40px;
+}
+
+
+h1 {
+  color: #036666;
+  text-align: right;
+}
+input {
+  box-shadow: 0 2px 0 2px #888;
+}
+.submit-btn {
+  display: flex;
+    justify-content: center;
+    padding-top: 10vh;
+  input {
+    box-shadow: 0 2px 0 2px #888;
+    color: #55CFB3;
+    border: 3px solid #3CC4C9;
+    background: white;
+    padding: 8px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    margin: 11px;
+    justify-content: center;
+  }
+}
+
+.party-name {
+label {
+  color:white;
+  }
+}
+.add-friend {
+  legend{
+    color:white;
+  }
 }
