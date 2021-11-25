@@ -133,16 +133,16 @@ party2 = Party.create!(
 
 puts "Parties created"
 
-puts "Creating meetings..."
+# puts "Creating meetings..."
 
-meeting = Meeting.create!(
-  user: cesar,
-  party: party,
-  start_date: Date.today,
-  end_date: Date.today + 1
-)
+# meeting = Meeting.create!(
+#   user: cesar,
+#   party: party,
+#   start_date: Date.today,
+#   end_date: Date.today + 1
+# )
 
-puts "Meetings created !"
+# puts "Meetings created !"
 
 puts "Creating drinks..."
 
