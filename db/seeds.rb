@@ -117,33 +117,9 @@ puts "Creating parties..."
 Party.create(name: "Hallowen's Party", user_id: elsa.id)
 Party.create(name: "Noel's Party", user_id: julia.id)
 Party.create(name: "Lea's birthday", user_id: benjamin.id)
-party = Party.create!(
-  name: "Party test",
-  user: cesar
-)
-
-party1 = Party.create!(
-  name: "Party test 1",
-  user: cesar
-)
-
-party2 = Party.create!(
-  name: "Wagolympiades",
-  user: cesar
-)
 
 puts "Parties created"
 
-# puts "Creating meetings..."
-
-# meeting = Meeting.create!(
-#   user: cesar,
-#   party: party,
-#   start_date: Date.today,
-#   end_date: Date.today + 1
-# )
-
-# puts "Meetings created !"
 
 puts "Creating drinks..."
 
