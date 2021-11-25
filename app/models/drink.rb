@@ -9,4 +9,16 @@ class Drink < ApplicationRecord
   def alcool_density
     return 0.80
   end
+
+  def details
+    {
+      quantity: quantity,
+      degree: alcool_degree,
+      density: alcool_density
+    }
+  end
+
+  def drink_sum
+    details[:quantity] * details[:degree] * details[:density]
+  end
 end

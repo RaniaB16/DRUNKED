@@ -13,6 +13,7 @@ class PartiesController < ApplicationController
     @beverage = Beverage.new
     @meeting = @party.meetings.find_by(user_id: current_user.id)
     authorize(@party)
+    @rate = alcool_rate(@meeting, current_user)
   end
 
   def create
@@ -22,28 +23,11 @@ class PartiesController < ApplicationController
     authorize(@party)
     if @party.save
       Meeting.create(user: current_user, party: @party)
-      # party_params[:user_ids].each_with_index do |user_id, i|
-      #   next if i.zero?
-
-      #   Meeting.create(user_id: user_id.to_i, party: @party)
-      # end
       redirect_to party_path(@party)
     else
       render :new
     end
   end
-
-  # def destroy
-  #   @party = find_party
-  #   authorize(@party)
-  #   @party.destroy
-  # end
-
-  # def update
-  #   @party = find_party
-  #   authorize(@party)
-  #   @party.update(party_params)
-  # end
 
   private
 
@@ -53,5 +37,9 @@ class PartiesController < ApplicationController
 
   def party_params
     params.require(:party).permit(:name, user_ids: [])
+  end
+
+  def alcool_rate(meeting, user)
+    meeting.drinks.map { |drink| (drink.drink_sum / user.user_sum) }.sum.round(2)
   end
 end

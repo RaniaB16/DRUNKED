@@ -33,4 +33,15 @@ class User < ApplicationRecord
       0.6
     end
   end
+
+  def details
+    {
+      weight: weight,
+      sex_ratio: sex_ratio
+    }
+  end
+
+  def user_sum
+    details[:weight] * details[:sex_ratio]
+  end
 end
