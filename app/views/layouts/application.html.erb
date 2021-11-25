@@ -17,8 +17,7 @@
       <%= render 'shared/navbar' unless action_name == "landing" %>
       <%= render 'shared/flashes' %>
       <%= yield %>
-      <%#= render 'shared/footer' unless controller.controller_name === "pages" && controller.action_name === "dashboard"  %>
-      <%= render 'shared/footer' %>
+      <%= render 'shared/footer' unless action_name == "landing" || controller_name == 'sessions' %>
     </div>
   </body>
 </html>
