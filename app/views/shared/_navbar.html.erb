@@ -1,6 +1,9 @@
 <div class="navbar-lewagon ">
-  <span class="Welcome"><%= "Welcome #{current_user.first_name}" %></span>
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= current_user.first_name.chr %>
+  <% if user_signed_in? %>
+    <p>Welcome</p>
+    <span class="Welcome"><%= current_user.first_name %></span>
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= current_user.first_name.chr %>
+    <% end %>
   <% end %>
 </div>
