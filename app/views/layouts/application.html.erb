@@ -14,7 +14,7 @@
 
   <body>
     <div class="main_wrapper">
-      <%= render 'shared/navbar' %>
+      <%= render 'shared/navbar' unless action_name == "landing" %>
       <%= render 'shared/flashes' %>
       <%= yield %>
       <%#= render 'shared/footer' unless controller.controller_name === "pages" && controller.action_name === "dashboard"  %>

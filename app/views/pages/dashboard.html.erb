@@ -9,7 +9,7 @@
   </div>
 
 <h1><%= "My drinking buddies" %></h1>
-
+<% array = ["rd-purple, rd-pink, "] %>
 <% current_user.friendships.each do |friendship| %>
 <%= friendship.user_two.first_name %>
 <% end %>
