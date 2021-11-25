@@ -25,4 +25,12 @@ class User < ApplicationRecord
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
+
+  def sex_ratio
+    if sex == "men"
+      0.7
+    else
+      0.6
+    end
+  end
 end
