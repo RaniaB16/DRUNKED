@@ -1,22 +1,31 @@
 <div class= "container" >
-  <h1> My last Parties </h1>
-  <div class="baner-dash">
-    <div class="text-baner">
-      <% current_user.parties.last(3).each do |party| %>
-      <h5><%= party.name %></h5>
-      <% end %>
+  <div class= "parties">
+    <h1> My last Parties </h1>
+    <div class="baner-dash">
+      <div class="text-baner">
+        <% current_user.parties.last(3).each do |party| %>
+          <h5><%= party.name %></h5>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
 
 <h1><%= "My drinking buddies" %></h1>
-<% array = ["rd-purple, rd-pink, "] %>
-<% current_user.friendships.each do |friendship| %>
-<%= friendship.user_two.full_name %>
-<% end %>
+<div class="my-buddies">
+  <% array = ["rd-purple", "rd-pink", "rd-yellow", "rd-blue"] %>
+  <% colors = array.sample(current_user.friendships.count)%>
+  <% current_user.friendships.each_with_index do |friendship, index| %>
+    <div class = "round-buddy <%= colors[index] %>" >
+      <%= friendship.user_two.initials %>
+    </div>
+  <% end %>
+</div>
 
 
 <h1><%= "My badges" %></h1>
 <%= link_to "New party", new_party_path %>
 <%= link_to "Edit my profil", edit_user_registration_path %>
 <%= link_to "My parties", parties_path %>
+
 </div>
