@@ -1,0 +1,28 @@
+.show-container{
+  margin: 0 40px;
+}
+
+.graph-show{
+img{
+  height:200px;
+width: 300px;
+}
+}
+.alcool-rate {
+  display: flex;
+  justify-content: center;
+}
+
+.add-drink-btn {
+  padding-top: 10vh;
+    box-shadow: 0 2px 0 2px #888;
+    color: #55CFB3;
+    border: 3px solid #3CC4C9;
+    background: white;
+    padding: 8px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    margin: 11px;
+    justify-content: center;
+  }
