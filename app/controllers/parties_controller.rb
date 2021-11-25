@@ -22,6 +22,11 @@ class PartiesController < ApplicationController
     authorize(@party)
     if @party.save
       Meeting.create(user: current_user, party: @party)
+      # party_params[:user_ids].each_with_index do |user_id, i|
+      #   next if i.zero?
+
+      #   Meeting.create(user_id: user_id.to_i, party: @party)
+      # end
       redirect_to party_path(@party)
     else
       render :new
