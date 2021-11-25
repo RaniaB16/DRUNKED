@@ -3,10 +3,10 @@
     <a  href="" class="<%= "active" if controller.controller_name === "pages" && controller.action_name === "home" && controller.action_name === "index" %>">
       <%= image_tag("badge.png", {class: "footer-icon"}) %>
     </a>
-    <a href="users/edit" class="<%= "active" if controller.controller_name === "registrations" && controller.action_name === "edit" %>">
+    <a href="/users/edit" class="<%= "active" if controller.controller_name === "registrations" && controller.action_name === "edit" %>">
       <%= image_tag("profile.png", {class: "footer-icon"}) %>
     </a>
-    <a href="parties" class="<%= "active" if controller.controller_name === "parties" && controller.action_name === "index" %>">
+    <a href="/parties" class="<%= "active" if controller.controller_name === "parties" && controller.action_name === "index" %>">
       <%= image_tag("party.png", {class: "footer-icon"}) %>
     </a>
 
