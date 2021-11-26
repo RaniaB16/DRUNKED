@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
 
       <h1>Drunked.</h1>
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to "#", class: "round-nav" do %>
         <%= current_user.first_name.chr %>
       <% end %>
     <% end %>
