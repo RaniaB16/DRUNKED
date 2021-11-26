@@ -19,33 +19,33 @@ puts "Data destroy"
 puts "Creating users..."
 
 cesar = User.create(
-  email: "test@gmail.com",
+  email: "cesar@gmail.com",
   password: "123456",
-  first_name: "cesar",
-  last_name: "castagne",
+  first_name: "César",
+  last_name: "Castagné",
   sex: "men",
-  weight: 95,
-  age: 24
+  age: 22,
+  weight: 70
 )
 
 user1 = User.create!(
-  email: "test1@gmail.com",
+  email: "albin@gmail.com",
   password: "123456",
-  first_name: "albin",
-  last_name: "castagne",
+  first_name: "Albin",
+  last_name: "Le Bon",
   sex: "men",
-  weight: 95,
-  age: 24
+  age: 29,
+  weight: 80
 )
 
 user2 = User.create!(
-  email: "test2@gmail.com",
+  email: "sarah@gmail.com",
   password: "123456",
-  first_name: "sarah",
-  last_name: "castagne",
-  sex: "men",
-  weight: 95,
-  age: 24
+  first_name: "Sarah",
+  last_name: "Levi",
+  sex: "woman",
+  age: 25,
+  weight: 60
 )
 
 elsa = User.create(
@@ -120,14 +120,35 @@ Party.create(name: "Lea's birthday", user_id: benjamin.id)
 
 puts "Parties created"
 
-
 puts "Creating drinks..."
 
-Drink.create!(alcool_type: "wine", alcool_degree: 0.12, quantity: 125)
-Drink.create!(alcool_type: "beer", alcool_degree: 0.05, quantity: 250)
-Drink.create!(alcool_type: "spirits", alcool_degree: 0.40, quantity: 40)
-Drink.create!(alcool_type: "champagne", alcool_degree: 0.12, quantity: 125)
-Drink.create!(alcool_type: "whiskey", alcool_degree: 0.40, quantity: 30)
-Drink.create(alcool_type: "pastis", alcool_degree: 0.45, quantity: 30)
+# Wines
+
+Drink.create!(alcool_type: "Red Wine", alcool_degree: 0.12, quantity: 125)
+Drink.create!(alcool_type: "White Wine", alcool_degree: 0.12, quantity: 125)
+Drink.create!(alcool_type: "Rosé", alcool_degree: 0.12, quantity: 125)
+
+# Beers
+
+Drink.create!(alcool_type: "Brown Beer", alcool_degree: 0.09, quantity: 250)
+Drink.create!(alcool_type: "White Beer", alcool_degree: 0.05, quantity: 250)
+Drink.create!(alcool_type: "Blond Beer", alcool_degree: 0.05, quantity: 250)
+Drink.create!(alcool_type: "Amber Beer", alcool_degree: 0.08, quantity: 250)
+Drink.create!(alcool_type: "Brown Beer", alcool_degree: 0.09, quantity: 500)
+Drink.create!(alcool_type: "White Beer", alcool_degree: 0.05, quantity: 500)
+Drink.create!(alcool_type: "Blond Beer", alcool_degree: 0.05, quantity: 500)
+Drink.create!(alcool_type: "Amber Beer", alcool_degree: 0.08, quantity: 500)
+
+# Spirits
+
+Drink.create!(alcool_type: "Gin", alcool_degree: 0.40, quantity: 30)
+Drink.create!(alcool_type: "Whisky", alcool_degree: 0.45, quantity: 30)
+Drink.create!(alcool_type: "Rum", alcool_degree: 0.40, quantity: 30)
+Drink.create!(alcool_type: "Vodka", alcool_degree: 0.40, quantity: 30)
+Drink.create!(alcool_type: "Pastis", alcool_degree: 0.45, quantity: 30)
+
+# Champagne
+
+Drink.create!(alcool_type: "Champagne", alcool_degree: 0.09, quantity: 125)
 
 puts "Drinks created!"
