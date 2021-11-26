@@ -26,6 +26,7 @@
 .sous-title {
   margin-bottom: 20px;
   margin-left: 20px;
+  margin-top: 20px;
 }
 
 .badgey-icon {
@@ -52,9 +53,10 @@
   color: white;
   margin-left: 20px;
   background: #a862e8;
-  padding: 5px 10px 5px 18px;
+  padding: 5px 10px 5px 15px;
   border-radius: 20px;
   box-shadow: 3px 4px blueviolet;
+  margin-right: 30px;
   &:active {
     margin-top: 3px;
     margin-left: 24px;
