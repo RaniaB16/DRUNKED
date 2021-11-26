@@ -14,6 +14,7 @@ class PartiesController < ApplicationController
     @meeting = @party.meetings.find_by(user_id: current_user.id)
     authorize(@party)
     @rate = alcool_rate(@meeting, current_user)
+    @difference = difference(@meeting)
   end
 
   def create
@@ -41,5 +42,13 @@ class PartiesController < ApplicationController
 
   def alcool_rate(meeting, user)
     meeting.drinks.map { |drink| (drink.drink_sum / user.user_sum) }.sum.round(2)
+  end
+
+  def difference(meeting)
+    t = Time.now
+    drink_time = meeting.drinks.last.created_at
+    hour = 3600
+    difference = (((t - drink_time) + hour) / 3600).round(2)
+    return difference
   end
 end
