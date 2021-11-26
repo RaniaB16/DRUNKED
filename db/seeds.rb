@@ -128,6 +128,8 @@ puts "Parties created"
 puts "Creating meetings"
 
 Meeting.create(user: albin, party: patoche)
+Meeting.create(user: albin, party: meme)
+Meeting.create(user: albin, party: tabac)
 
 puts "Creating drinks..."
 

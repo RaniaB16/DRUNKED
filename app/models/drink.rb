@@ -23,6 +23,6 @@ class Drink < ApplicationRecord
   end
 
   def label_drink
-    "#{alcool_type} - #{quantity / 10} ml - #{alcool_degree * 100}%"
+    "#{alcool_type} - #{quantity / 10} cl - #{alcool_degree * 100}%"
   end
 end
