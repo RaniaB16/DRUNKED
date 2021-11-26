@@ -5,7 +5,7 @@
     align-items: center;
     padding: 10px;
     box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-    color: #55CFB3;
+    color: black;
     margin-bottom: 30px;
     text-decoration: none;
     position:sticky;
@@ -42,5 +42,13 @@
 
 .link-friends a {
   text-decoration: none;
-  color: #55CFB3;
+  color: black;
+}
+
+
+.navbar-lewagon h1 {
+    color: black;
+    text-align: right;
+    box-shadow: 3px;
+    box-shadow: 7px 6px black;
 }
