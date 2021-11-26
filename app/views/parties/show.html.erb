@@ -1,6 +1,6 @@
 <div class="show-container">
   <div class="graph-show">
-    <p>One day, you could see a real graphic here... Let God decide... </p>
+    <p>Bientôt, un vrai graph ici... Si Dieu le veut !</p>
     <%= image_tag('graph.png') %>
   </div>
 
@@ -15,25 +15,25 @@
       <% end %>
   </div>
 
-  <!-- button link to Modal 1 -->
+<!-- button link to Modal 1 -->
   <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
     Add a drink
   </button>
 
   <!-- Modal 1 -->
-  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="addADrinkModalLabel">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="search-form-control form-group mb-5">
             <%= simple_form_for @beverage do |f| %>
-              <%= f.input :drink_id, collection: Drink.pluck(:alcool_type, :id)%>
+              <%= f.input :drink_id, collection: Drink.pluck(:alcool_type, :id) %>
               <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
-              <%=f.submit "Select your drink", class: "btn btn-flat" %>
+              <%= f.submit "Select your drink", class: "btn btn-flat" %>
             <% end %>
           </div>
         </div>
@@ -41,33 +41,37 @@
     </div>
   </div>
 
-  <!-- button link to Modal 2 -->
-  <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#myDrinksModal">
+<!-- button link to Modal 1 -->
+  <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal2">
     My drinks
   </button>
 
-  <!-- Modal 2 -->
-  <div class="modal fade" id="myDrinksModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal 1 -->
+  <div class="modal fade" id="addADrinkModal2" tabindex="-1" aria-labelledby="addADrinkModalLabel2" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">My drinks</h5>
+          <h5 class="modal-title" id="addADrinkModalLabel2">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <strong>Details of my drink list: </strong>
-            <%= render '/drinks/list', drinks: @meeting.drinks %>
+          <%= render '/drinks/list', drinks: @meeting.drinks %>
         </div>
       </div>
     </div>
   </div>
 
+
+
+
   <div class="my-buddies">
     <% array = ["rd-purple", "rd-pink", "rd-yellow", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
     <% colors = array.sample(current_user.friendships.count)%>
     <% current_user.friendships.each_with_index do |friendship, index| %>
-      <div class = "round-buddy" <%= colors[index] %> >
+      <div class = "round-buddy <%= colors[index] %>"  >
         <%= friendship.user_two.initials %>
       </div>
     <% end %>
+  </div>
 </div>

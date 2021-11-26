@@ -6,14 +6,18 @@
 
 .graph-show{
 img{
-  margin-left: 50px;
+  margin-left: 70px;
+  margin-right: 50px;
   height:150px;
   width: 200px;
 }
 }
 
 .alcool-rate {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-drink-btn {
