@@ -34,7 +34,7 @@ user1 = User.create!(
   first_name: "Albin",
   last_name: "Le Bon",
   sex: "men",
-  age: 29,
+  age: 30,
   weight: 80
 )
 
@@ -107,8 +107,8 @@ puts "Users created!"
 
 puts "Creating friendships.."
 
-Friendship.create!(user_one_id: cesar.id, user_two_id: user1.id)
-Friendship.create!(user_one_id: cesar.id, user_two_id: user2.id)
+Friendship.create!(user_one_id: albin.id, user_two_id: user1.id)
+Friendship.create!(user_one_id: albin.id, user_two_id: user2.id)
 
 puts "Friendships done !"
 
@@ -117,6 +117,9 @@ puts "Creating parties..."
 Party.create(name: "Hallowen's Party", user_id: elsa.id)
 Party.create(name: "Noel's Party", user_id: julia.id)
 Party.create(name: "Lea's birthday", user_id: benjamin.id)
+Party.create(name: "Soirée avec les bg", user_id: albin.id)
+Party.create(name: "Dîner avec mémé", user_id: albin.id)
+Party.create(name: "Chez Momo", user_id: albin.id)
 
 puts "Parties created"
 
