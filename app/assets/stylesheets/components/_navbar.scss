@@ -13,16 +13,18 @@
 }
 
 .navbar-brand {
-  margin-right: 0px;
-  background-color: #55CFB3;
-  height: 50px;
-  width: 50px;
+  color: white;
+  font-weight: normal;
+  font-family: "Work Sans", "Quicksand", "sans-serif";
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-
+  border-radius: white;
+  background-color: #55CFB3;
+  margin-right: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
