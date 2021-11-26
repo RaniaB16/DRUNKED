@@ -28,7 +28,7 @@ cesar = User.create(
   weight: 70
 )
 
-user1 = User.create!(
+albin = User.create!(
   email: "albin@gmail.com",
   password: "123456",
   first_name: "Albin",
@@ -38,7 +38,7 @@ user1 = User.create!(
   weight: 80
 )
 
-user2 = User.create!(
+sarah = User.create!(
   email: "sarah@gmail.com",
   password: "123456",
   first_name: "Sarah",
