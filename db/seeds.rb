@@ -119,11 +119,17 @@ puts "Creating parties..."
 Party.create(name: "Hallowen's Party", user_id: elsa.id)
 Party.create(name: "Noel's Party", user_id: julia.id)
 Party.create(name: "Lea's birthday", user_id: benjamin.id)
-Party.create(name: "Chez Patoche", user_id: albin.id)
-Party.create(name: "Dîner avec Mémé", user_id: albin.id)
-Party.create(name: "Bar tabac du coin", user_id: albin.id)
+patoche = Party.create(name: "Chez Patoche", user_id: albin.id)
+meme = Party.create(name: "Dîner avec Mémé", user_id: albin.id)
+tabac = Party.create(name: "Bar tabac du coin", user_id: albin.id)
 
 puts "Parties created"
+
+puts "Creating meetings"
+
+Meeting.create(user: albin, party: patoche)
+Meeting.create(user: albin, party: meme)
+Meeting.create(user: albin, party: tabac)
 
 puts "Creating drinks..."
 

@@ -21,4 +21,8 @@ class Drink < ApplicationRecord
   def drink_sum
     details[:quantity] * details[:degree] * details[:density]
   end
+
+  def label_drink
+    "#{alcool_type} - #{quantity / 10} cl - #{alcool_degree * 100}%"
+  end
 end

@@ -4,7 +4,7 @@
       <%= link_to "+ Add friends", new_friendship_path %>
     </div>
     <span class="Welcome">Welcome <%=  current_user.first_name %></span>
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to dashboard_path, class: "navbar-brand" do %>
         <%= current_user.first_name.chr %>
       <% end %>
     <% end %>

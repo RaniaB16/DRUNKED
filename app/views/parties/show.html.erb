@@ -5,7 +5,7 @@
   </div>
 
   <div class="alcool-rate">
-    <h1>Alcohol rate <%= @rate %>ml </h1>
+    <h1>Alcohol rate <%= @rate %> g/l </h1>
       <% if @rate == 0 %>
       <p>  FANTASTIC !!! You can drive !</p>
       <% elsif @rate <= 0.5 %>
@@ -31,7 +31,7 @@
         <div class="modal-body">
           <div class="search-form-control form-group mb-5">
             <%= simple_form_for @beverage do |f| %>
-              <%= f.input :drink_id, collection: Drink.pluck(:alcool_type, :id) %>
+              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id %>
               <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
               <%= f.submit "Select your drink", class: "btn btn-flat" %>
             <% end %>
@@ -63,15 +63,16 @@
   </div>
 
 
-
-
+  <div class="my-friends-title mb-3">
+    <h2>My friends</h2>
+  </div>
   <div class="my-buddies">
-    <% array = ["rd-purple", "rd-pink", "rd-yellow", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-    <% colors = array.sample(current_user.friendships.count)%>
-    <% current_user.friendships.each_with_index do |friendship, index| %>
-      <div class = "round-buddy <%= colors[index] %>"  >
-        <%= friendship.user_two.initials %>
-      </div>
-    <% end %>
+      <% array = ["rd-purple", "rd-pink", "rd-yellow", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+      <% colors = array.sample(current_user.friendships.count)%>
+      <% current_user.friendships.each_with_index do |friendship, index| %>
+       <div class = "round-buddy <%= colors[index] %>"  >
+         <%= friendship.user_two.initials %>
+        </div>
+      <% end %>
   </div>
 </div>
