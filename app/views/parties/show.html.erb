@@ -1,57 +1,73 @@
 <div class="show-container">
   <div class="graph-show">
-    <p>En attendant un vrai graph si Dieu veut... </p>
-     <%= image_tag('graph.png') %>
+    <p>One day, you could see a real graphic here... Let God decide... </p>
+    <%= image_tag('graph.png') %>
   </div>
-    <div class="alcool-rate">
-    <h1>Alcohol rate
-      <%= @rate %></h1>
-    </div>
 
-<!-- button link to Modal -->
-<button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Add a drink
-</button>
-</div>
+  <div class="alcool-rate">
+    <h1>Alcohol rate <%= @rate %>ml </h1>
+      <% if @rate == 0 %>
+      <p>  FANTASTIC !!! You can drive !</p>
+      <% elsif @rate <= 0.5 %>
+      <p>  You are a respectable person !!! You still can drive !</p>
+      <% else %>
+       <p> STOP ! YOU CANNOT DRIVE OR TEXT YOUR EX !</p>
+      <% end %>
+  </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+  <!-- button link to Modal 1 -->
+  <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
+    Add a drink
+  </button>
 
-        <div class="search-form-control form-group mb-5">
-          <%= simple_form_for @beverage do |f| %>
-            <%= f.input :drink_id, collection: Drink.pluck(:alcool_type, :id)%>
-            <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
-            <%=f.submit "Select your drink", class: "btn btn-flat" %>
-          <% end %>
+  <!-- Modal 1 -->
+  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                My drinks
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>Details of my drink list</strong>
-                <%= render '/drinks/list', drinks: @meeting.drinks %>
-              </div>
-            </div>
+        <div class="modal-body">
+          <div class="search-form-control form-group mb-5">
+            <%= simple_form_for @beverage do |f| %>
+              <%= f.input :drink_id, collection: Drink.pluck(:alcool_type, :id)%>
+              <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
+              <%=f.submit "Select your drink", class: "btn btn-flat" %>
+            <% end %>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <!-- button link to Modal 2 -->
+  <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#myDrinksModal">
+    My drinks
+  </button>
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="myDrinksModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">My drinks</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <strong>Details of my drink list: </strong>
+            <%= render '/drinks/list', drinks: @meeting.drinks %>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="my-buddies">
+    <% array = ["rd-purple", "rd-pink", "rd-yellow", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+    <% colors = array.sample(current_user.friendships.count)%>
+    <% current_user.friendships.each_with_index do |friendship, index| %>
+      <div class = "round-buddy" <%= colors[index] %> >
+        <%= friendship.user_two.initials %>
+      </div>
+    <% end %>
+</div>
