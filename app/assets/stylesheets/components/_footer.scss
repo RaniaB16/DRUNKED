@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 60px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   padding-bottom: 0px;
@@ -39,5 +39,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 60px;
+}
+
+.badgey a {
+  width: 60px;
+}
+
+.profile a {
   width: 40px;
+}
+
+.party a {
+  width: 50px;
 }

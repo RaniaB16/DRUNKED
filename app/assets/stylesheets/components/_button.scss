@@ -1,14 +1,16 @@
 .btn-drunked {
-  color: #55CFB3;
-  border: 3px solid #3CC4C9;
-  background: white;
-  padding: 8px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  display: flex;
-  margin: 11px;
+    color: white;
+    /* border: 3px solid black; */
+    background: #9de9f4;;
+    padding: 8px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    margin: 11px;
     /* text-align: center; */
-  justify-content: center;
+    justify-content: center;
+    box-shadow: 5px 3px #6b98bc;
+    font-family: 'Apercu-bold';
 }
 .btn_landing {
     display: flex;
@@ -31,4 +33,5 @@
 
 .btn-big {
   width: 95%;
+  font-style:bold;
 }
