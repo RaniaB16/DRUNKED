@@ -107,8 +107,10 @@ puts "Users created!"
 
 puts "Creating friendships.."
 
-Friendship.create!(user_one_id: cesar.id, user_two_id: user1.id)
-Friendship.create!(user_one_id: cesar.id, user_two_id: user2.id)
+Friendship.create!(user_one_id: albin.id, user_two_id: cesar.id)
+Friendship.create!(user_one_id: albin.id, user_two_id: paul.id)
+Friendship.create!(user_one_id: albin.id, user_two_id: chloe.id)
+Friendship.create!(user_one_id: albin.id, user_two_id: julia.id)
 
 puts "Friendships done !"
 
