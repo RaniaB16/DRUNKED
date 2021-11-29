@@ -2,9 +2,9 @@ class BeveragesController < ApplicationController
 
   def create
     @meeting = Meeting.find(params[:beverage][:meeting_id])
-
     if (params[:beverage][:drink_id]).empty?
       redirect_to request.referer
+      # raise
     else
       @drink = Drink.find(params[:beverage][:drink_id])
       @beverage = Beverage.new(beverage_params)

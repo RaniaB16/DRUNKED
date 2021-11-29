@@ -6,18 +6,17 @@
 }
 
 
-.add-drink-btn {
-    box-shadow: 0 2px 0 2px #888;
-    color: #55CFB3;
-    border: 3px solid #3CC4C9;
-    background: white;
+#add-drink-btn {
     padding: 16px 24px;
-    border-radius: 10px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     margin: 8px;
     width:300px;
+    position:unset;
+background: #9de9f4;
+    border: 3px solid #6b98bc;
+    box-shadow: 3px 4px #6b98bc;
   }
 
   #myDrinksModal {
@@ -35,7 +34,8 @@
     }
 
   #addADrinkModal,
-  #addADrinkModal2 {
+  #addADrinkModal2,
+  #exampleModal {
     top: auto;
     bottom: 0;
     height: auto;
@@ -57,16 +57,7 @@
 
 
 #end-party-btn {
-  color: black;
-  border: 4px solid black;
-  background-color: white;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
   top: auto;
-  position: sticky;
   margin-left:auto;
 }
 
