@@ -1,6 +1,5 @@
 <div class="navbar-lewagon ">
   <% if user_signed_in? %>
-
       <h1>Drunked.</h1>
       <%= link_to "#", class: "round-nav" do %>
        <% if current_user.photo.attached?%>
