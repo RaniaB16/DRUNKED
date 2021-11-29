@@ -2,7 +2,12 @@
   <% if user_signed_in? %>
       <h1>Drunked.</h1>
       <%= link_to "#", class: "round-nav" do %>
-        <%= current_user.first_name.chr %>
+       <% if current_user.photo.attached?%>
+          <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill %>
+        <% else %>
+          <%= current_user.initials %>
+        <% end %>
+
       <% end %>
     <% end %>
 </div>

@@ -35,13 +35,17 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :sex, :age, :weight])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :sex, :age, :weight, :photo])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :sex, :age, :weight])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :sex, :age, :weight, :photo])
   end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 end

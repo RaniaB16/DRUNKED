@@ -23,7 +23,14 @@
     <% colors = array.sample(current_user.friendships.count)%>
     <% current_user.friendships.each_with_index do |friendship, index| %>
       <div class = "round-buddy <%= colors[index] %>" >
-        <%= friendship.user_two.initials %>
+
+
+        <% if friendship.user_two.photo.attached?%>
+          <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
+        <% else %>
+          <%= friendship.user_two.initials %>
+        <% end %>
+
       </div>
     <% end %>
     <div class="round-buddy-2">
@@ -31,12 +38,6 @@
     </div>
   </div>
 
-  <div class= "sous-title">
-    <h2><%= "My bagdes" %></h2>
-  </div>
-  <%= image_tag("badgey.png", {class: "badgey-icon"}) %>
-  <%= image_tag("badgey.png", {class: "badgey-icon"}) %>
-  <%= image_tag("badgey.png", {class: "badgey-icon"}) %>
 
 
   <div class= "btn-create-party">
