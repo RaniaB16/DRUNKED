@@ -1,24 +1,37 @@
 .round-buddy {
   color: white ;
-  font-weight: bold;
+  font-weight: normal;
   font-family: "Work Sans", "Quicksand", "sans-serif";
 
-}
-.my-buddies {
+  margin-bottom: 10px;
+  margin-right: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: white;
+}
 
+
+.my-buddies {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    margin-left: 18px;
 }
 
 .sous-title {
   margin-bottom: 20px;
   margin-left: 20px;
+  margin-top: 20px;
 }
 
 .badgey-icon {
   margin-bottom: 20px;
-  margin-left: 47px;
+  margin-left: 27px;
 
 }
 
@@ -27,4 +40,67 @@
   display: flex;
   justify-content: center;
   color: #55CFB3;
+}
+
+.link a {
+  text-decoration: none;
+  text-align: start;
+  color:white;
+
+}
+
+.link h5 {
+    width: max-content;
+    text-align: left;
+    color: white;
+    margin-left: 20px;
+    background: #9de9f4;
+    padding: 0px 10px 0px 11px;
+    border-radius: 20px;
+    box-shadow: 3px 4px #6b98bc;
+    margin-bottom: 20px;
+    font-size: 21px;
+    &:active {
+    margin-top: 3px;
+    margin-left: 24px;
+    box-shadow: none;
+
+  }
+}
+
+
+.link img {
+  width: 40px;
+}
+
+.icon-link-party {
+  margin-right: 10px;
+}
+
+.custom-container {
+  padding-bottom: 100px;
+}
+
+.link {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.round-buddy-2 a {
+  text-decoration: none;
+    /* border-radius: 50%; */
+  border: black 5px;
+  font-weight: normal;
+  font-family: "Work Sans", "Quicksand", "sans-serif";
+  margin-bottom: 10px;
+  margin-right: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: antiquewhite;
+  color: grey;
 }

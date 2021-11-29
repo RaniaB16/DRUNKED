@@ -4,23 +4,27 @@
     background: white;
     align-items: center;
     padding: 10px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
-    color: #55CFB3;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    color: black;
     margin-bottom: 30px;
     text-decoration: none;
+    position:sticky;
+    top:0;
 }
 
 .navbar-brand {
-  margin-right: 0px;
-  background-color: #55CFB3;
-  height: 50px;
-  width: 50px;
+  color: white;
+  font-weight: normal;
+  font-family: "Work Sans", "Quicksand", "sans-serif";
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-
+  border-radius: white;
+  background-color: #55CFB3;
+  margin-right: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -40,5 +44,32 @@
 
 .link-friends a {
   text-decoration: none;
-  color: #55CFB3;
+  color: black;
+}
+
+
+.navbar-lewagon h1 {
+    color: black;
+    text-align: right;
+    box-shadow: 3px;
+    box-shadow: 7px 6px black;
+}
+
+
+.round-nav {
+  text-decoration: none;
+    /* border-radius: 50%; */
+  border: black 5px;
+  font-weight: normal;
+  font-family: "Work Sans", "Quicksand", "sans-serif";
+  margin-bottom: 10px;
+  margin-right: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: antiquewhite;
+  color: grey;
 }

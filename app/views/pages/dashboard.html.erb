@@ -1,39 +1,46 @@
-<div class= "container" >
+<div class= "container custom-container" >
   <div class= "parties">
     <div class= "sous-title">
-      <h2> My last Parties </h2>
+      <h2> My last parties </h2>
     </div>
-    <div class="baner-dash">
-      <div class="text-baner">
+    <div class= "last-parties">
+      <div class="link">
         <% current_user.parties.last(3).each do |party| %>
-        <h5><%= link_to party.name, party_path(party) %></h5>
-          <% end %>
+          <h5 class="d-flex align-items-center">
+            <%= link_to party.name, party_path(party) %>
+          </h5>
+        <% end %>
       </div>
     </div>
     </div>
-  </div>
+
 
   <div class= "sous-title">
     <h2><%= "My drinking buddies" %></h2>
   </div>
   <div class="my-buddies">
-    <% array = ["rd-purple", "rd-pink", "rd-yellow", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+    <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
     <% colors = array.sample(current_user.friendships.count)%>
     <% current_user.friendships.each_with_index do |friendship, index| %>
       <div class = "round-buddy <%= colors[index] %>" >
         <%= friendship.user_two.initials %>
       </div>
     <% end %>
+    <div class="round-buddy-2">
+    <%= link_to "+", new_friendship_path %>
+    </div>
   </div>
 
-<div class= "sous-title">
-  <h2><%= "My bagdes" %></h2>
-</div>
-<%= image_tag("badgey.png", {class: "badgey-icon"}) %>
-<%= image_tag("badgey.png", {class: "badgey-icon"}) %>
-<%= image_tag("badgey.png", {class: "badgey-icon"}) %>
+  <div class= "sous-title">
+    <h2><%= "My bagdes" %></h2>
+  </div>
+  <%= image_tag("badgey.png", {class: "badgey-icon"}) %>
+  <%= image_tag("badgey.png", {class: "badgey-icon"}) %>
+  <%= image_tag("badgey.png", {class: "badgey-icon"}) %>
 
 
-<div class= "btn-create-party">
-  <%= link_to "Create a party", new_party_path, class: "btn-drunked btn-big" %>
-</div>
+  <div class= "btn-create-party">
+    <%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big" %>
+  </div>
+
+ </div>
