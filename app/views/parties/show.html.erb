@@ -8,11 +8,16 @@
     <h1>Alcohol rate <%= @rate %> g/l </h1>
       <% if @rate == 0 %>
       <p>  FANTASTIC !!! You can drive !</p>
-      <% elsif @rate < 0.5 %>
+      <% elsif @rate <= 0.4 %>
       <p>  You are a respectable person !!! You can still drive !</p>
       <% else %>
        <p> STOP ! YOU CANNOT DRIVE OR TEXT YOUR EX !</p>
       <% end %>
+  </div>
+
+  <div>
+    <h1>You alcol rate = <%= @alcool %> </h1>
+    <h1>You'll be sober in: <%= @sober %></h1>
   </div>
 
 <!-- button link to Modal 1 -->
