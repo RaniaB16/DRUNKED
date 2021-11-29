@@ -16,13 +16,13 @@ class Meeting < ApplicationRecord
       time_elapsed = 0
     else
       time_peak = drinks.first.created_at + (drinks.count * 2700)
-      time_elapsed = (Time.now.in_time_zone("Europe/Paris") - (time_peak.in_time_zone('Europe/Paris') - 1.hours))/60
+      time_elapsed = (Time.now.in_time_zone("Europe/Paris") - (time_peak.in_time_zone('Europe/Paris') - 1.hours)) / 60
     end
     new_alcool_rate = alcool_rate - (0.12 * time_elapsed / 60)
     new_alcool_rate = 0 if new_alcool_rate.negative?
     return {
-      alcool_rate: new_alcool_rate.round(3),
-      time_elapsed: time_elapsed.round(3)
+      alcool_rate: new_alcool_rate.round(2),
+      time_elapsed: time_elapsed.round(2)
     }
   end
 end
