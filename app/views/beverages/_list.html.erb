@@ -1,0 +1,8 @@
+<ul>
+  <% beverages.each do |beverage|%>
+  <li>
+    <%= beverage.drink.alcool_type %>
+    <%= link_to 'remove', beverage_path(beverage), method: :delete %>
+  </li>
+  <% end %>
+</ul>
