@@ -134,6 +134,8 @@ puts "Friendships done !"
 
 puts "Creating parties..."
 
+
+Party.create(name: "Hallowen's Party", user_id: thomas.id)
 Party.create(name: "Noel's Party", user_id: julia.id)
 Party.create(name: "Lea's birthday", user_id: benjamin.id)
 patoche = Party.create(name: "Chez Patoche", user_id: albin.id)
