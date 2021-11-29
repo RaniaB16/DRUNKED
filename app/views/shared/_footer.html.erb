@@ -3,12 +3,12 @@
     <div class="footer-links">
       <a href="/users/edit" class="<%= "active" if controller.controller_name === "registrations" && controller.action_name === "edit" %>">
         <div class= "profile">
-          <%= image_tag("profile.png", {class: "footer-icon"}) %>
+          <i class="fas fa-user"></i>
         </div>
       </a>
       <a href="/parties" class="<%= "active" if controller.controller_name === "parties" && controller.action_name === "index" %>">
         <div class= "party">
-          <%= image_tag("party.png", {class: "footer-icon"}) %>
+          <i class="fas fa-glass-cheers"></i>
         </div>
       </a>
     </div>

@@ -1,18 +1,18 @@
 .btn-drunked {
-           color: white;
+            color: white;
     /* border: 3px solid black; */
     background: #ff7c71;
     padding: 8px 24px;
-    border-radius: 8px;
+    border-radius: 0;
     text-decoration: none;
     display: flex;
     margin: 11px;
     /* text-align: center; */
+    border: 3px solid #b34e46;
     justify-content: center;
     box-shadow: 5px 3px #b34e46;
     font-family: 'Apercu-bold';
-    position:sticky;
-
+    position: sticky;
 
 }
 .btn_landing {

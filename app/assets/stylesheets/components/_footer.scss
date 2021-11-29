@@ -53,3 +53,18 @@
 .party a {
   width: 50px;
 }
+
+
+
+i.fas.fa-user {
+    font-size: 35px;
+    color: black;
+    &:active {
+      color: red;
+    }
+}
+
+i.fas.fa-glass-cheers {
+  font-size: 35px;
+  color: black;
+}

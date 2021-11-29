@@ -49,23 +49,21 @@
 }
 
 .link h5 {
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     text-align: left;
     color: white;
     margin-left: 20px;
     background: #9de9f4;
     padding: 0px 10px 0px 11px;
-    border-radius: 20px;
+    border-radius: 0;
     box-shadow: 3px 4px #6b98bc;
     margin-bottom: 20px;
     font-size: 21px;
-    &:active {
-    margin-top: 3px;
-    margin-left: 24px;
-    box-shadow: none;
-
-  }
+    border: 3px solid #6b98bc;
 }
+
 
 
 .link img {
