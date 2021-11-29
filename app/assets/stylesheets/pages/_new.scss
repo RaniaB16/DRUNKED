@@ -36,9 +36,7 @@ h1 {
   color: black;
   text-align: right;
 }
-input {
-  box-shadow: 0 2px 0 2px #888;
-}
+
 
 .submit-btn {
   display: flex;
@@ -67,4 +65,9 @@ label {
   legend{
     color:white;
   }
+}
+
+.avatar-checked {
+box-shadow: 4px 4px black;
+
 }

@@ -10,12 +10,26 @@
     <%= f.input :user_ids,
                   as: :check_boxes,
                   collection: current_user.friends.map { |e| [e.full_name, e.id] },
-                  label: "Add your friend",
                   input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
+                  item_wrapper_class: 'tag-item d-none'%>
+    <div class="my-buddies">
+      <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+      <% colors = array.sample(current_user.friendships.count)%>
+      <% current_user.friends.each_with_index do |friend, index| %>
+        <div class = "round-buddy new-form <%= colors[index] %>" >
+          <label for="party_user_ids_<%= friend.id%>">
+            <% if friend.photo.attached?%>
+              <%= cl_image_tag friend.photo.key, height: 100, width: 100, crop: :fill %>
+            <% else %>
+              <%= friend.initials %>
+            <% end %>
+          </label>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-   <div class="submit-btn">
+   <div class="btn-drunked">
 
        <%= f.submit %>
       <% end %>
