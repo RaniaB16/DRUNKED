@@ -13,8 +13,12 @@
     box-shadow: 5px 3px #b34e46;
     font-family: 'Apercu-bold';
     position: sticky;
-
+    input {
+          background-color: transparent;
+    border: none;
+    color: white;
 }
+    }
 
 .btn_landing {
     display: flex;

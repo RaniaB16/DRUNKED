@@ -4,7 +4,11 @@
     <%= simple_form_for(@party) do |f| %>
      <div class="p-2 bd-highlight party-name">
       <%= f.input :name,
-                  label: "Party Name" %>
+                  label: "Party Name",
+                  placeholder: "Name your party" %>
+      </div>
+      <div class="new-friends">
+        <h1>Add friends</h1>
       </div>
   <div class="p-2 bd-highlight add-friend">
     <%= f.input :user_ids,
@@ -12,7 +16,7 @@
                   collection: current_user.friends.map { |e| [e.full_name, e.id] },
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item d-none'%>
-    <div class="my-buddies">
+    <div class="my-buddies new-party-buddies">
       <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
       <% colors = array.sample(current_user.friendships.count)%>
       <% current_user.friends.each_with_index do |friend, index| %>

@@ -1,6 +1,6 @@
 <div class="navbar-lewagon ">
   <% if user_signed_in? %>
-      <h1>Drunked.</h1>
+ <h1><%=  link_to 'Drunked.', dashboard_path %></h1>
       <%= link_to "#", class: "round-nav" do %>
        <% if current_user.photo.attached?%>
           <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill %>
