@@ -1,24 +1,24 @@
 <div class="show-container">
 
   <div class="alcool-rate">
-    <% if @rate == 0 %>
+    <% if @alcool_rate == 0 %>
       <div class="alert alert-success" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
         <span> 🎉 FANTASTIC !!! You can drive !</span>
       </div>
-    <% elsif @rate < 0.5 %>
+    <% elsif @alcool_rate < 0.5 %>
       <div class="alert alert-warning" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
         <span> Great, You're still a respectable person !!! You can drive. but, be careful ! </span>
       </div>
     <% else %>
       <div class="alert alert-danger" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
         <span> <strong> STOOOP ! </strong> YOU CANNOT DRIVE OR TEXT YOUR EX!</span>
       </div>
       <% end %>
   </div>
-
+<% if @meeting.end_date.nil? %>
  <div class=Show-modal>
 <!-- button link to Modal 1 -->
   <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
@@ -36,7 +36,7 @@
         <div class="modal-body">
           <div class="search-form-control form-group mb-5">
             <%= simple_form_for @beverage do |f| %>
-              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select one', required: true %>
+              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true %>
               <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
               <%= f.submit "Select your drink", class: "btn btn-flat" %>
             <% end %>
@@ -101,19 +101,19 @@
       <div class="modal-body">
       <%= render '/beverages/list', beverages: @meeting.beverages %>
 
-       <% if @rate == 0 %>
+       <% if @alcool_rate == 0 %>
       <div class="alert alert-success" id="rate-status" role="alert">
-        <strong> <h2> your alcohol rate is <%= @rate %> g/l </h2></strong>
+        <strong> <h2> your alcohol rate is <%= @alcool_rate %> g/l </h2></strong>
         <span> 🎉 FANTASTIC !!! You can drive !</span>
       </div>
-    <% elsif @rate < 0.5 %>
+    <% elsif @alcool_rate < 0.5 %>
       <div class="alert alert-warning" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
         <span> Great, You're still a respectable person !!! You can drive. but, be careful ! </span>
       </div>
     <% else %>
       <div class="alert alert-danger" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
         <span> <strong> STOP ! </strong>
         PLEASE, BE CAREFUL ! Your alcohol rate is high. You can not drive
         for the moment. It is highly recommanded to wait (...attente methode...) minutes or order a uber.
@@ -124,11 +124,28 @@
       <div class="modal-footer">
         <%= link_to "End a party", dashboard_path, class: "btn btn-flat" %>
         <%= link_to "Order an Uber", "http://www.uber.com", class: "btn btn-gradient" %>
-
+<%# les boutons permettrons de close the party. update meeting en lui passant le end_date de la date actuelle%>
       </div>
     </div>
   </div>
 </div>
-  <!-- fermeture container -->
 
+<div class= "sous-title">
+    <h2><%= "My drinking buddies" %></h2>
+</div>
+<div class="my-buddies">
+  <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+  <% colors = array.sample(current_user.friendships.count)%>
+  <% current_user.friendships.each_with_index do |friendship, index| %>
+    <div class = "round-buddy <%= colors[index] %>" >
+        <% if friendship.user_two.photo.attached?%>
+          <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
+        <% else %>
+          <%= friendship.user_two.initials %>
+        <% end %>
+      </div>
+      <% end %>
+  </div>
+  <!-- fermeture container -->
+<%end%>
 </div>
