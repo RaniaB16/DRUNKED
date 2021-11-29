@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :beverages, through: :meetings
   has_many :drinks, through: :beverages
   has_many :friendships, class_name: "Friendship", foreign_key: "user_one"
+  has_one_attached :photo
 
   validates :first_name, presence: true
   validates :last_name, presence: true
