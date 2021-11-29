@@ -1,14 +1,20 @@
 <div class="footer">
   <% if user_signed_in? %>
     <div class="footer-links">
-      <a  href="" class="<%= "active" if controller.controller_name === "pages" && controller.action_name === "home" && controller.action_name === "index" %>">
-        <%= image_tag("badge.png", {class: "footer-icon"}) %>
-      </a>
       <a href="/users/edit" class="<%= "active" if controller.controller_name === "registrations" && controller.action_name === "edit" %>">
-        <%= image_tag("profile.png", {class: "footer-icon"}) %>
+        <div class= "profile">
+          <%= image_tag("profile.png", {class: "footer-icon"}) %>
+        </div>
+      </a>
+      <a href="" class="<%= "active" if controller.controller_name === "pages" && controller.action_name === "home" && controller.action_name === "index" %>">
+        <div class= "badgey">
+          <%= image_tag("badgey.png", {class: "footer-icon"}) %>
+        </div>
       </a>
       <a href="/parties" class="<%= "active" if controller.controller_name === "parties" && controller.action_name === "index" %>">
-        <%= image_tag("party.png", {class: "footer-icon"}) %>
+        <div class= "party">
+          <%= image_tag("party.png", {class: "footer-icon"}) %>
+        </div>
       </a>
     </div>
   <% end %>

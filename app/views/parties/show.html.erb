@@ -8,8 +8,8 @@
     <h1>Alcohol rate <%= @rate %> g/l </h1>
       <% if @rate == 0 %>
       <p>  FANTASTIC !!! You can drive !</p>
-      <% elsif @rate <= 0.5 %>
-      <p>  You are a respectable person !!! You still can drive !</p>
+      <% elsif @rate < 0.5 %>
+      <p>  You are a respectable person !!! You can still drive !</p>
       <% else %>
        <p> STOP ! YOU CANNOT DRIVE OR TEXT YOUR EX !</p>
       <% end %>
@@ -41,7 +41,7 @@
     </div>
   </div>
 
-<!-- button link to Modal 1 -->
+<!-- button link to Modal 2 -->
   <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal2">
     My drinks
   </button>

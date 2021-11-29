@@ -1,10 +1,7 @@
 <div class="navbar-lewagon ">
   <% if user_signed_in? %>
-    <div class="link-friends">
-      <%= link_to "+ Add friends", new_friendship_path %>
-    </div>
-    <span class="Welcome">Welcome <%=  current_user.first_name %></span>
-      <%= link_to dashboard_path, class: "navbar-brand" do %>
+      <h1>Drunked.</h1>
+      <%= link_to "#", class: "round-nav" do %>
         <%= current_user.first_name.chr %>
       <% end %>
     <% end %>
