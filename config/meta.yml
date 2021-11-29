@@ -1,0 +1,5 @@
+meta_product_name: "Drunked"
+meta_title: "Drunked - Drive home safely"
+meta_description: "Drink and drive home safely"
+meta_image: "driver.png" # should exist in `app/assets/images/`
+twitter_account: "@Lewagonparis"   # required for Twitter Cards
