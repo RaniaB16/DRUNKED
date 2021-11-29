@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require "open-uri"
+
 puts "Deleting all data..."
 
 Friendship.destroy_all
@@ -48,16 +51,19 @@ user2 = User.create!(
   age: 24
 )
 
-elsa = User.create(
-  first_name: "Elsa",
+thomas = User.create(
+  first_name: "Thomas",
   last_name: "Paulin",
-  email: "elsa@gmail.com",
+  email: "thomas@gmail.com",
   password: "123456",
   password_confirmation: "123456",
   sex: "woman",
   age: 23,
   weight: 55
 )
+
+file = URI.open('https://kitt.lewagon.com/placeholder/users/Eschults')
+thomas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 benjamin = User.create(
   first_name: "Benjamin",
@@ -70,6 +76,9 @@ benjamin = User.create(
   weight: 80
 )
 
+file = URI.open('https://kitt.lewagon.com/placeholder/users/arthur-littm')
+benjamin.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 chloe = User.create(
   first_name: "Chloe",
   last_name: "Diavola",
@@ -80,6 +89,8 @@ chloe = User.create(
   age: 26,
   weight: 70
 )
+file = URI.open('https://kitt.lewagon.com/placeholder/users/krokrob')
+chloe.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 paul = User.create(
   first_name: "Paul",
@@ -91,6 +102,9 @@ paul = User.create(
   age: 29,
   weight: 95
 )
+file = URI.open('https://kitt.lewagon.com/placeholder/users/cveneziani')
+paul.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 
 julia = User.create(
   first_name: "Julia",
@@ -102,6 +116,10 @@ julia = User.create(
   age: 30,
   weight: 49
 )
+
+file = URI.open('https://kitt.lewagon.com/placeholder/users/sarahlafer')
+julia.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
 
 puts "Users created!"
 
