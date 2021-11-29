@@ -1,9 +1,11 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@font-face { font-family: "Apercu"; src: url("https://static-assets.codecademy.com/gamut/apercu-regular-pro.woff")}
+@font-face { font-family: "Apercu-bold"; src: url("https://static-assets.codecademy.com/gamut/apercu-bold-pro.woff")}
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Quicksand", "sans-serif";
-$headers-font: "Nunito", "Quicksand", "sans-serif";
+$body-font: "Apercu", "Quicksand", "sans-serif";
+$headers-font: "Apercu-bold", "Quicksand", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
