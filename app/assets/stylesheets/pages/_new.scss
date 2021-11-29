@@ -36,9 +36,7 @@ h1 {
   color: black;
   text-align: right;
 }
-input {
-  box-shadow: 0 2px 0 2px #888;
-}
+
 
 .submit-btn {
   display: flex;
@@ -60,11 +58,26 @@ input {
 
 .party-name {
 label {
-  color:white;
+  color:black;
+  display: none;
   }
 }
 .add-friend {
   legend{
     color:white;
   }
+}
+
+.avatar-checked {
+box-shadow: 4px 4px black;
+
+}
+
+.new-friends h1 {
+  text-align: center;
+  margin-bottom: -21px;
+}
+
+.my-buddies.new-party-buddies {
+margin-bottom: 25px;
 }
