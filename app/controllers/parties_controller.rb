@@ -15,6 +15,7 @@ class PartiesController < ApplicationController
     authorize(@party)
     @alcool_rate = @meeting.sobriaty[:alcool_rate]
     @sober = @meeting.sobriaty[:time_elapsed]
+    @time_to_dedrunk = @meeting.sobriaty[:time_format]
   end
 
   def create
