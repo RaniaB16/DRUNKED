@@ -42,11 +42,12 @@ export default class extends Controller {
   }
 
   _updateList(html) {
-    this.listTarget.innerHTML = html
+    this.listTargets.forEach(list => list.innerHTML = html);
   }
 
   _updateRate(html) {
-    const alert = document.querySelector('.alert');
-    alert.outerHTML = html
+    const alerts = document.querySelectorAll('.alert');
+    alerts.forEach (alert =>
+    alert.outerHTML = html)
   }
 }
