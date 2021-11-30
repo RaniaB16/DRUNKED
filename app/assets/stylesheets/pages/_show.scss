@@ -6,15 +6,15 @@
 }
 
 
-#end-party-btn {
+#add-drink-btn {
+    padding: 16px 24px;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin: 8px;
+    width:300px;
     position:unset;
-    background: #9de9f4;
-    border: 3px solid #6b98bc;
-    box-shadow: 3px 4px #6b98bc;
-    top: auto;
-    margin-left:auto;
-}
+  }
 
   #myDrinksModal {
     box-shadow: 0 2px 0 2px #888;
@@ -52,6 +52,14 @@
 }
 
 
+
+#end-party-btn {
+  background: #9de9f4;
+  border: 3px solid #6b98bc;
+  box-shadow: 3px 4px #6b98bc;
+  top: auto;
+  margin-left:auto;
+}
 
 #end-party-btn:hover {
   opacity: 1;
