@@ -18,10 +18,10 @@
       </div>
       <% end %>
   </div>
-
+<% if @meeting.end_date.nil? %>
  <div class=Show-modal>
 <!-- button link to Modal 1 -->
-  <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
+  <button type="button" class="btn-drunked btn-big" id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
     Add a drink
   </button>
 
@@ -36,7 +36,7 @@
         <div class="modal-body">
           <div class="search-form-control form-group mb-5">
             <%= simple_form_for @beverage do |f| %>
-              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select one', required: true %>
+              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true %>
               <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
               <%= f.submit "Select your drink", class: "btn btn-flat" %>
             <% end %>
@@ -47,7 +47,7 @@
   </div>
 
 <!-- button link to Modal 2 -->
-  <button type="button" class="btn btn-primary add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal2">
+  <button type="button" class="btn-drunked btn-big" id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal2">
     My drinks
   </button>
 
@@ -67,24 +67,34 @@
     </div>
   </div>
   </div>
+<!-- Prendre uniquement les buddies selectionnés--->
 
-  <div class="my-friends-title mb-3">
-    <h2>My friends</h2>
-  </div>
-  <div class="my-buddies">
-      <% array = ["rd-purple", "rd-pink", "rd-yellow", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-      <% colors = array.sample(current_user.friendships.count)%>
-      <% current_user.friendships.each_with_index do |friendship, index| %>
-       <div class = "round-buddy <%= colors[index] %>"  >
-         <%= friendship.user_two.initials %>
-        </div>
+  <div class= "sous-title">
+    <h2><%= "My drinking buddies" %></h2>
+</div>
+<div class="my-buddies">
+  <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+  <% colors = array.sample(current_user.friendships.count)%>
+  <% current_user.friendships.each_with_index do |friendship, index| %>
+    <div class = "round-buddy <%= colors[index] %>" >
+        <% if friendship.user_two.photo.attached?%>
+          <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
+        <% else %>
+          <%= friendship.user_two.initials %>
+        <% end %>
+      </div>
       <% end %>
+    <div class="round-buddy-2">
+    <%= link_to "+", new_friendship_path %>
+    </div>
   </div>
+  <!-- fermeture container -->
+<%end%>
 <!-- Modal 3 -->
 
 
-
-<button type="button" class="btn btn-primary" id="end-party-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<!--End Party button--->
+<button type="button" class="btn-drunked" id="end-party-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
   End the party !
 </button>
 
@@ -124,11 +134,13 @@
       <div class="modal-footer">
         <%= link_to "End a party", dashboard_path, class: "btn btn-flat" %>
         <%= link_to "Order an Uber", "http://www.uber.com", class: "btn btn-gradient" %>
-
+<%# les boutons permettrons de close the party. update meeting en lui passant le end_date de la date actuelle%>
       </div>
     </div>
   </div>
 </div>
+
+
   <!-- fermeture container -->
 
 </div>
