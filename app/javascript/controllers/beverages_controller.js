@@ -13,13 +13,16 @@ export default class extends Controller {
     fetch(this.formTarget.action, {
       method: "POST",
       headers: {
-        'Accept': 'text/plain',
+        'Accept': 'application/json',
         'X-CSRF-Token': csrfToken()
       },
       body: new FormData(this.formTarget)
     })
-      .then(response => response.text())
-      .then((data) => { this.listTarget.innerHTML = data });
+      .then(response => response.json())
+      .then((data) => {
+        this._updateList(data.list_partial)
+        this._updateRate(data.alcool_rate_partial)
+      });
   }
 
   delete(event) {
@@ -27,9 +30,23 @@ export default class extends Controller {
     fetch(event.currentTarget.href, {
       method: "DELETE",
       headers: {
+        'Accept': 'application/json',
         'X-CSRF-Token': csrfToken()
       }
     })
-    event.currentTarget.parentElement.remove();
+      .then(response => response.json())
+      .then((data) => {
+        this._updateList(data.list_partial)
+        this._updateRate(data.alcool_rate_partial)
+      });
+  }
+
+  _updateList(html) {
+    this.listTarget.innerHTML = html
+  }
+
+  _updateRate(html) {
+    const alert = document.querySelector('.alert');
+    alert.outerHTML = html
   }
 }

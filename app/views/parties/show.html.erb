@@ -1,23 +1,6 @@
 <div class="show-container">
+  <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
 
-  <div class="alcool-rate">
-    <% if @alcool_rate == 0 %>
-      <div class="alert alert-success" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l</h2></strong>
-        <span> 🎉 FANTASTIC !!! You can drive ! </span>
-      </div>
-    <% elsif @alcool_rate < 0.5 %>
-      <div class="alert alert-warning" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
-        <span> Great, You're still a respectable person !!! You can drive. but, be careful ! You'll be sober in <%= @time_to_dedrunk %> </span>
-      </div>
-    <% else %>
-      <div class="alert alert-danger" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
-        <span> <strong> STOOOP ! </strong> YOU CANNOT DRIVE OR TEXT YOUR EX!</span>
-      </div>
-      <% end %>
-  </div>
 <% if @meeting.end_date.nil? %>
  <div class=Show-modal>
 <!-- button link to Modal 1 -->
@@ -83,7 +66,7 @@
   </div>
   <!-- fermeture container -->
 <%end%>
-<!-- Modal 3 -->
+<!-- Modal 2 end the party -->
 
 
 <!--End Party button--->
@@ -91,7 +74,7 @@
   End the party !
 </button>
 
-<!-- Modal 3-->
+<!-- Modal 2 end the party-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -99,7 +82,7 @@
         <h3 class="modal-title" id="exampleModalLabel">consumption summary:</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <!-- Modal 3 details-->
+      <!-- Modal 2 end the party details-->
 
       <div class="modal-body">
       <%= render '/beverages/list', beverages: @meeting.beverages %>
