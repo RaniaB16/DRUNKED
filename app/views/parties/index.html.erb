@@ -1,3 +1,4 @@
+<h1 class="myparties">My parties</h1>
 <div class="d-flex flex-wrap container">
   <% @parties.each do |party| %>
     <div class="list-parties">
@@ -5,6 +6,6 @@
     </div>
   <% end %>
 </div>
-<div class= "back">
+<div class="fas fa-arrow-left">
   <%= link_to "Back", dashboard_path %>
 </div>
