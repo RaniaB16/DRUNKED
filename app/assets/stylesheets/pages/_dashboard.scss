@@ -2,7 +2,6 @@
   color: white ;
   font-weight: normal;
   font-family: "Work Sans", "Quicksand", "sans-serif";
-
   margin-bottom: 10px;
   margin-right: 20px;
   height: 60px;
@@ -15,26 +14,29 @@
   position: relative;
 }
 
-
 .my-buddies {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
 }
 
-.sous-title {
+.sous-title-1-dash {
   margin-bottom: 20px;
   margin-left: 20px;
   margin-top: 20px;
-      position: relative;
+}
 
+.sous-title-2-dash {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  position: relative;
 }
 
 .badgey-icon {
   margin-bottom: 20px;
   margin-left: 27px;
-
 }
 
 .text-banner h5 {
@@ -48,25 +50,21 @@
   text-decoration: none;
   text-align: start;
   color:white;
-
 }
 
 .link h5 {
-    width: -webkit-max-content;
-    width: -moz-max-content;
     width: max-content;
     text-align: left;
     color: white;
     margin-left: 20px;
     background: #9de9f4;
-    padding: 0px 10px 0px 11px;
+    padding: 3px 10px 3px 10px;
     border-radius: 0;
     box-shadow: 3px 4px #6b98bc;
     margin-bottom: 20px;
-    font-size: 21px;
+    font-size: 18px;
     border: 3px solid #6b98bc;
 }
-
 
 
 .link img {
@@ -75,10 +73,6 @@
 
 .icon-link-party {
   margin-right: 10px;
-}
-
-.custom-container {
-  padding-bottom: 100px;
 }
 
 .link {

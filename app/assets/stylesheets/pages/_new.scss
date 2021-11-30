@@ -2,6 +2,12 @@
   display: inline-block;
 }
 
+.new-party-title {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
 .tag-selector {
   position: absolute;
   transform: scale(0);
@@ -25,16 +31,6 @@
   color: white;
 }
 
-.new-container {
-margin: 0 40px;
-}
-
-h1 {
-  color: black;
-  text-align: right;
-}
-
-
 .submit-btn {
   display: flex;
     justify-content: center;
@@ -54,45 +50,48 @@ h1 {
 }
 
 .party-name {
-label {
-  color:black;
-  display: none;
+  margin-left: 20px;
+  margin-right: 20px;
+  label {
+    color:black;
+    display: none;
   }
 }
+
 .add-friend {
-  legend{
-    color:white;
-  }
+  margin-bottom: 20px;
+  margin-left: 20px;
+    legend {
+      color:white;
+   }
+}
+
+.new-party-buddies {
+  margin-top: -30px;
 }
 
 .avatar-checked {
 box-shadow: 4px 4px black;
-
 }
 
-.new-friends h1 {
-  text-align: center;
-  margin-bottom: -21px;
-}
-
-.my-buddies.new-party-buddies {
-margin-bottom: 25px;
+.new-friends {
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 #backdash {
-    padding-top: 20px;
-    padding-left: 20px;
-    transform: scale(1.1);
-  }
+  padding-top: 20px;
+  padding-left: 20px;
+  transform: scale(1.1);
+}
 
-  #backdash a {
-    text-decoration: none;
-    color: black;
-    opacity: 30px;
-    padding-bottom: 20px;
-    font-family: "Apercu-bold", "Quicksand", "sans-serif";
-  }
+#backdash a {
+  text-decoration: none;
+  color: black;
+  opacity: 30px;
+  padding-bottom: 20px;
+  font-family: "Apercu-bold", "Quicksand", "sans-serif";
+}
 .round-buddy input {
-
   display: none;
 }
