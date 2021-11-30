@@ -20,7 +20,7 @@
             <%= simple_form_for @beverage, data: { beverages_target: 'form', action: 'submit->beverages#send' } do |f| %>
               <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true, input_html: { data: { action: 'change->beverages#select' } } %>
               <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
-              <%= f.submit "Select your drink", disabled: true, class: "btn btn-flat", data: { beverages_target: 'button' } %>
+              <%= f.submit "Add your drink", disabled: true, class: "btn-drunked", data: { beverages_target: 'button' } %>
             <% end %>
           </div>
           <div class="accordion" id="accordionExample">
@@ -45,7 +45,7 @@
   <!-- Prendre uniquement les buddies selectionnés + indiquer leurs taux--->
 
   <div class= "sous-title">
-    <h2><%= "My drinking buddies" %></h2>
+    <h2><%= "Participants" %></h2>
   </div>
 
   <div class="my-buddies">
@@ -65,16 +65,11 @@
   </div>
 
 
-
-  <!-- Modal 2 end the party -->
-
-
   <!--End Party button--->
   <div>
     <button type="button" class="btn-drunked" id="end-party-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
       End the party !
     </button>
-
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -113,7 +108,7 @@
             <% end %>
           </div>
           <div class="modal-footer">
-            <%= link_to "End a party", dashboard_path, class: "btn btn-flat" %>
+            <%= link_to "End a party", dashboard_path, class: "btn-drunked" %>
             <%= link_to "Order an Uber", "http://www.uber.com", class: "btn btn-gradient" %>
           </div>
         </div>
