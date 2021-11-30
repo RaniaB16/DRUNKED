@@ -1,6 +1,5 @@
 .tag-item {
   display: inline-block;
-
 }
 
 .tag-selector {
@@ -11,20 +10,18 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 0.7rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
   background-color: #ECEAFF;
-  color: #036666;
-  border: 1px solid #036666;
-  margin-right: 1rem;
+  color: #7E73FF;
+  border: 1px solid #7E73FF;
+  margin-right: 0.6rem;
   margin-bottom: 0.4rem;
-    box-shadow: 0 2px 0 2px #888;
-
 }
 
 .tag-selector:checked + label {
-  background-color: #036666;
+  background-color: #7E73FF;
   color: white;
 }
 
@@ -95,3 +92,7 @@ margin-bottom: 25px;
     padding-bottom: 20px;
     font-family: "Apercu-bold", "Quicksand", "sans-serif";
   }
+.round-buddy input {
+
+  display: none;
+}
