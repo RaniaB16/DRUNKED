@@ -4,15 +4,18 @@ class BeveragesController < ApplicationController
     @meeting = Meeting.find(params[:beverage][:meeting_id])
     if (params[:beverage][:drink_id]).empty?
       redirect_to request.referer
-      # raise
     else
       @drink = Drink.find(params[:beverage][:drink_id])
       @beverage = Beverage.new(beverage_params)
       @beverage.drink = @drink
-      if @beverage.save!
-        redirect_to request.referer
-        #else
-        #render :new
+      respond_to do |format|
+        if @beverage.save
+          format.html { redirect_to request.referer }
+          format.text { render partial: 'beverages/list.html', locals: { beverages: @meeting.beverages } }
+        else
+          format.html { render 'parties/show' }
+          format.json
+        end
       end
     end
     authorize(Beverage)
