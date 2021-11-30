@@ -1,19 +1,22 @@
-<h1>SELECT YOUR FRIENDS</h1>
+<div class="container custom-container">
+  <div class="title-new-friendship">
+    <h2>Select your friends</h2>
+  </div>
+  <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+  <% colors = array.sample(@users.count) %>
 
-<%= form_tag add_friends_path, method: :get do |f| %>
-  <% @users.each do |user| %>
-     <% if current_user.friends.include? user %>
-      <%= label_tag user do %>
-      <%= user.full_name %>
-      <%= check_box_tag "users[]", user.id, checked = true %>
+  <div class="my-buddies">
+    <%= form_tag add_friends_path, method: :get do |f| %>
+    <div class="d-flex flex-wrap justify-content-between align-items-center mt-10">
+        <% @users.each_with_index do |user, index| %>
+        <%= label_tag user, class: "round-buddy #{colors[index]} #{'avatar-checked' if current_user.friends.include?(user)} new-form" do %>
+          <%= user.initials %>
+          <%= check_box_tag "users[]", user.id, checked = current_user.friends.include?(user) %>
+        <% end %>
       <% end %>
-      <% else %>
-      <%= label_tag user do %>
-      <%= user.full_name %>
-      <%= check_box_tag "users[]", user.id, checked = false %>
-      <% end %>
-    <% end %>
+      </div>
+  </div>
+    <%= submit_tag "Save" %>
   <% end %>
-  <%= submit_tag "Save" %>
-<% end %>
-<%= link_to "Back", dashboard_path %>
+  <%= link_to "Back", dashboard_path %>
+</div>

@@ -67,4 +67,7 @@ i.fas.fa-user {
 i.fas.fa-glass-cheers {
   font-size: 35px;
   color: black;
+   &:active {
+      color: red;
+    }
 }

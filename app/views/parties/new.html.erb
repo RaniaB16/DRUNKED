@@ -1,44 +1,43 @@
 
 <div class="new-container">
   <h1>New Party</h1>
-    <%= simple_form_for(@party) do |f| %>
-     <div class="p-2 bd-highlight party-name">
+  <%= simple_form_for(@party) do |f| %>
+    <div class="p-2 bd-highlight party-name">
       <%= f.input :name,
-                  label: "Party Name",
-                  placeholder: "Name your party" %>
-      </div>
-      <div class="new-friends">
-        <h1>Add friends</h1>
-      </div>
-
-  <div class="p-2 bd-highlight add-friend">
-    <%= f.input :user_ids,
-                  as: :check_boxes,
-                  collection: current_user.friends.map { |e| [e.full_name, e.id] },
-                  input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item d-none'%>
-    <div class="my-buddies new-party-buddies">
-      <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-      <% colors = array.sample(current_user.friendships.count)%>
-      <% current_user.friends.each_with_index do |friend, index| %>
-        <div class = "round-buddy new-form <%= colors[index] %>" >
-          <label for="party_user_ids_<%= friend.id%>">
-            <% if friend.photo.attached?%>
-              <%= cl_image_tag friend.photo.key, height: 100, width: 100, crop: :fill %>
-            <% else %>
-              <%= friend.initials %>
-            <% end %>
-          </label>
-        </div>
-      <% end %>
+                label: "Party Name",
+                placeholder: "Name your party" %>
     </div>
-  </div>
-
-   <div class="btn-drunked">
-
-
-       <%= f.submit %>
-      <% end %>
+    <div class="new-friends">
+      <h1>Add friends</h1>
     </div>
-     <%= link_to "Back", dashboard_path, class: "btn btn-green" %>
+    <div class="p-2 bd-highlight add-friend">
+      <%= f.input :user_ids,
+                    as: :check_boxes,
+                    collection: current_user.friends.map { |e| [e.full_name, e.id] },
+                    input_html: { class: "tag-selector" },
+                    item_wrapper_class: 'tag-item d-none'%>
+      <div class="my-buddies new-party-buddies">
+        <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+        <% colors = array.sample(current_user.friendships.count) %>
+        <% current_user.friends.each_with_index do |friend, index| %>
+          <div class="round-buddy new-form <%= colors[index] %>" >
+            <label for="party_user_ids_<%= friend.id%>">
+              <% if friend.photo.attached?%>
+                <%= cl_image_tag friend.photo.key, height: 100, width: 100, crop: :fill %>
+              <% else %>
+                <%= friend.initials %>
+              <% end %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+
+    <div class="btn-drunked">
+      <%= f.submit %>
+    </div>
+  <% end %>
+  <%= link_to "Back", dashboard_path, class: "btn btn-green" %>
 </div>
