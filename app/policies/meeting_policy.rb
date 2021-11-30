@@ -3,14 +3,17 @@ class MeetingPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def new
-      create?
-    end
+  def new
+    create?
+  end
 
-    def create?
-      return true
-    end
+  def create?
+    true
+  end
 
+  def update?
+    create?
   end
 end

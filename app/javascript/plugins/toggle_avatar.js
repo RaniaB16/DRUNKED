@@ -12,4 +12,4 @@ const toggleAvatarChecked = () => {
   })
 }
 
-toggleAvatarChecked();
+export { toggleAvatarChecked };

@@ -7,15 +7,16 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import {toggleAvatarChecked} from "plugins/toggle_avatar"
+
+import { toggleAvatarChecked } from "plugins/toggle_avatar"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-document.addEventListener("turbolinks:load",event => {
+
+document.addEventListener("turbolinks:load", (event) => {
   toggleAvatarChecked();
-})
+});
 
 import "controllers"
 import "bootstrap"
-import "chartkick/chart.js"

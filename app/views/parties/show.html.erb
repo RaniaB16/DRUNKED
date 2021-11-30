@@ -3,9 +3,13 @@
 
  <div class=Show-modal>
   <!-- button link to Modal 1 -->
-  <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
-    Add a drink
-  </button>
+  <% unless @meeting.end_date? %>
+    <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
+      Add a drink
+    </button>
+  <% else %>
+    <%= render '/beverages/list', beverages: @meeting.beverages %>
+  <% end %>
 
   <!-- Modal 1 -->
   <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true" data-controller="beverages">
@@ -67,9 +71,12 @@
 
   <!--End Party button--->
   <div>
-    <button type="button" class="btn-drunked" id="end-party-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      End the party !
-    </button>
+
+    <% unless @meeting.end_date? %>
+      <button type="button" class="btn-drunked" id="end-party-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        End the party !
+      </button>
+    <% end %>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -108,7 +115,7 @@
             <% end %>
           </div>
           <div class="modal-footer">
-            <%= link_to "End a party", dashboard_path, class: "btn-drunked" %>
+            <%= link_to "End a party", meeting_path(@meeting,  meetings: { end_date: DateTime.now }), method: :patch, class: "btn-drunked" %>
             <%= link_to "Order an Uber", "http://www.uber.com", class: "btn btn-gradient" %>
           </div>
         </div>
