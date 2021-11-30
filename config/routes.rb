@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :parties
   resources :beverages
-  resources :friendships, only: [:new]
+  resources :friendships, only: [:new, :destroy]
   get "/add_friends", to: "friendships#add_friends"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
