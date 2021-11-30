@@ -14,7 +14,6 @@ class PartiesController < ApplicationController
     @meeting = @party.meetings.find_by(user_id: current_user.id)
     authorize(@party)
     @alcool_rate = @meeting.sobriaty[:alcool_rate]
-    @sober = @meeting.sobriaty[:time_elapsed]
     @time_to_dedrunk = @meeting.sobriaty[:time_format]
   end
 
