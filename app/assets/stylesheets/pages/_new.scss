@@ -81,3 +81,17 @@ box-shadow: 4px 4px black;
 .my-buddies.new-party-buddies {
 margin-bottom: 25px;
 }
+
+#backdash {
+    padding-top: 20px;
+    padding-left: 20px;
+    transform: scale(1.1);
+  }
+
+  #backdash a {
+    text-decoration: none;
+    color: black;
+    opacity: 30px;
+    padding-bottom: 20px;
+    font-family: "Apercu-bold", "Quicksand", "sans-serif";
+  }
