@@ -22,4 +22,11 @@ class FriendshipsController < ApplicationController
     authorize(@friendship)
     redirect_to dashboard_path
   end
+
+  def destroy
+    @friendship = Friendship.find(params[:id])
+    authorize(@friendship)
+    @friendship.destroy
+    redirect_to dashboard_path
+  end
 end

@@ -1,19 +1,28 @@
 <div class="show-container">
   <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
 
-  <div class=Show-modal data-controller="beverages">
-    <!-- button link to Modal 1 -->
-    <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
-      Add a drink
-    </button>
 
-    <!-- Modal 1 -->
-    <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true" >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addADrinkModalLabel">Choose a drink</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ <div class=Show-modal>
+  <!-- button link to Modal 1 -->
+  <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
+    Add a drink
+  </button>
+
+  <!-- Modal 1 -->
+  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true" data-controller="beverages">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addADrinkModalLabel">Choose a drink</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="search-form-control form-group mb-5">
+            <%= simple_form_for @beverage, data: { beverages_target: 'form', action: 'submit->beverages#send' } do |f| %>
+              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true, input_html: { data: { action: 'change->beverages#select' } } %>
+              <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
+              <%= f.submit "Add your drink", disabled: true, class: "btn-drunked", data: { beverages_target: 'button' } %>
+            <% end %>
           </div>
           <div class="modal-body">
             <div class="search-form-control form-group mb-5">
@@ -44,10 +53,10 @@
 
     <!-- Prendre uniquement les buddies selectionnés + indiquer leurs taux--->
 
-    <div class= "sous-title">
-      <h2><%= "My drinking buddies" %></h2>
-    </div>
 
+  <div class= "sous-title">
+    <h2><%= "Participants" %></h2>
+  </div>
     <div class="my-buddies">
       <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
       <% colors = array.sample(@party.users.count)%>
@@ -62,10 +71,7 @@
       <% end %>
     </div>
 
-
-
     <!-- Modal 2 end the party -->
-
 
     <!--End Party button--->
     <div>
@@ -110,7 +116,7 @@
               <% end %>
             </div>
             <div class="modal-footer">
-              <%= link_to "End a party", dashboard_path, class: "btn btn-flat" %>
+              <%= link_to "End a party", dashboard_path, class: "btn-drunked" %>
               <%= link_to "Order an Uber", "http://www.uber.com", class: "btn btn-gradient" %>
             </div>
           </div>
