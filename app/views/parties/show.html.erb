@@ -1,14 +1,14 @@
 <div class="show-container">
   <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
 
- <div class=Show-modal>
+ <div class=Show-modal data-controller="beverages">
   <!-- button link to Modal 1 -->
   <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
     Add a drink
   </button>
 
   <!-- Modal 1 -->
-  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true" data-controller="beverages">
+  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

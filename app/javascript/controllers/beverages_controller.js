@@ -46,7 +46,8 @@ export default class extends Controller {
   }
 
   _updateRate(html) {
-    const alert = document.querySelector('.alert');
-    alert.outerHTML = html
+    const alerts = document.querySelectorAll('.alert');
+    alerts.forEach (alert =>
+    alert.outerHTML = html)
   }
 }
