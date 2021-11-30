@@ -42,7 +42,7 @@ export default class extends Controller {
   }
 
   _updateList(html) {
-    this.listTarget.innerHTML = html
+    this.listTargets.forEach(list => list.innerHTML = html);
   }
 
   _updateRate(html) {

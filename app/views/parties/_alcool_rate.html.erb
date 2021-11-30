@@ -6,14 +6,14 @@
     </div>
   <% elsif alcool_rate < 0.5 %>
     <div class="alert alert-warning" id="rate-status" role="alert">
-      <strong> <h2>Alcohol rate <%= alcool_rate %> g/l. </h2></strong>
+      <strong> <h2>Alcohol rate <%= alcool_rate %> g/l</h2></strong>
       <strong> <h2>You'll be sober in <%= @time_to_dedrunk%> </h2></strong>
 
       <span> Great, You're still a respectable person !!! You can drive. but, be careful ! You'll be sober in <%= @time_to_dedrunk %> </span>
     </div>
   <% else %>
     <div class="alert alert-danger" id="rate-status" role="alert">
-      <strong> <strong> <h2>Alcohol rate <%= alcool_rate %> g/l. </h2></strong>
+      <strong> <strong> <h2>Alcohol rate <%= alcool_rate %> g/l</h2></strong>
       <strong> <h2>You'll be sober in <%= @time_to_dedrunk%> </h2></strong>
       <span> <strong> STOOOP ! </strong> YOU CANNOT DRIVE OR TEXT YOUR EX!</span>
     </div>
