@@ -12,4 +12,8 @@ class FriendshipPolicy < ApplicationPolicy
   def add_friends?
     true
   end
+
+  def destroy?
+    true
+  end
 end
