@@ -12,9 +12,7 @@
         <% end %>
       </div>
     </div>
-    </div>
-
-
+  </div>
   <div class= "sous-title">
     <h2><%= "My drinking buddies" %></h2>
   </div>
@@ -28,19 +26,13 @@
         <% else %>
           <%= friendship.user_two.initials %>
         <% end %>
-
-
       </div>
     <% end %>
     <div class="round-buddy-2">
-    <%= link_to "+", new_friendship_path %>
+    <%= link_to "+", new_friendship_path, data: { turbolinks: 'false'} %>
     </div>
   </div>
-
-
-
   <div class= "btn-create-party">
-    <%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big" %>
+    <%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big", data: {turbolinks: false} %>
   </div>
-
- </div>
+</div>
