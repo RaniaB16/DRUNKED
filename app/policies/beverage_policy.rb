@@ -5,11 +5,11 @@ class BeveragePolicy < ApplicationPolicy
     end
   end
 
-  def new
-    create?
+  def create?
+    return true
   end
 
-  def create?
+  def destroy?
     return true
   end
 end

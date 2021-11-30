@@ -18,3 +18,4 @@ document.addEventListener("turbolinks:load",event => {
 
 import "controllers"
 import "bootstrap"
+import "chartkick/chart.js"

@@ -13,7 +13,8 @@ class PartiesController < ApplicationController
     @beverage = Beverage.new
     @meeting = @party.meetings.find_by(user_id: current_user.id)
     authorize(@party)
-    @rate = alcool_rate(@meeting, current_user)
+    @alcool_rate = @meeting.sobriaty[:alcool_rate]
+    @time_to_dedrunk = @meeting.sobriaty[:time_format]
   end
 
   def create
@@ -37,9 +38,5 @@ class PartiesController < ApplicationController
 
   def party_params
     params.require(:party).permit(:name, user_ids: [])
-  end
-
-  def alcool_rate(meeting, user)
-    meeting.drinks.map { |drink| (drink.drink_sum / user.user_sum) }.sum.round(2)
   end
 end
