@@ -1,32 +1,14 @@
 <div class="show-container">
+  <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
 
-  <div class="alcool-rate">
-    <% if @alcool_rate == 0 %>
-      <div class="alert alert-success" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
-        <span> 🎉 FANTASTIC !!! You can drive !</span>
-      </div>
-    <% elsif @alcool_rate < 0.5 %>
-      <div class="alert alert-warning" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
-        <span> Great, You're still a respectable person !!! You can drive. but, be careful ! </span>
-      </div>
-    <% else %>
-      <div class="alert alert-danger" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
-        <span> <strong> STOOOP ! </strong> YOU CANNOT DRIVE OR TEXT YOUR EX!</span>
-      </div>
-      <% end %>
-  </div>
-<% if @meeting.end_date.nil? %>
  <div class=Show-modal>
 <!-- button link to Modal 1 -->
-  <button type="button" class="btn-drunked btn-big" id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
+  <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
     Add a drink
   </button>
 
   <!-- Modal 1 -->
-  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addADrinkModal" tabindex="-1" aria-labelledby="addADrinkModalLabel" aria-hidden="true" data-controller="beverages">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -35,62 +17,56 @@
         </div>
         <div class="modal-body">
           <div class="search-form-control form-group mb-5">
-            <%= simple_form_for @beverage do |f| %>
-              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true %>
+            <%= simple_form_for @beverage, data: { beverages_target: 'form', action: 'submit->beverages#send' } do |f| %>
+              <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true, input_html: { data: { action: 'change->beverages#select' } } %>
               <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
-              <%= f.submit "Select your drink", class: "btn btn-flat" %>
+              <%= f.submit "Select your drink", disabled: true, class: "btn btn-flat", data: { beverages_target: 'button' } %>
             <% end %>
+          </div>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <strong>Details of my drink list: </strong>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body" data-beverages-target='list'>
+                  <%= render '/beverages/list', beverages: @meeting.beverages %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<!-- button link to Modal 2 -->
-  <button type="button" class="btn-drunked btn-big" id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal2">
-    My drinks
-  </button>
-
-  <!-- Modal 2 -->
-  <div class="modal fade" id="addADrinkModal2" tabindex="-1" aria-labelledby="addADrinkModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addADrinkModalLabel2">Your comsumption:</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <strong>Details of my drink list: </strong>
-          <%= render '/beverages/list', beverages: @meeting.beverages %>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-<!-- Prendre uniquement les buddies selectionnés--->
+<!-- Prendre uniquement les buddies selectionnés + indiquer leurs taux--->
 
   <div class= "sous-title">
     <h2><%= "My drinking buddies" %></h2>
 </div>
+
 <div class="my-buddies">
   <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-  <% colors = array.sample(current_user.friendships.count)%>
-  <% current_user.friendships.each_with_index do |friendship, index| %>
+  <% colors = array.sample(@party.users.count)%>
+  <% @party.users.each_with_index do |friendship, index| %>
     <div class = "round-buddy <%= colors[index] %>" >
-        <% if friendship.user_two.photo.attached?%>
-          <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
+        <% if friendship.photo.attached?%>
+          <%= cl_image_tag friendship.photo.key, height: 100, width: 100, crop: :fill %>
         <% else %>
-          <%= friendship.user_two.initials %>
+          <%= friendship.initials %>
         <% end %>
       </div>
       <% end %>
-    <div class="round-buddy-2">
-    <%= link_to "+", new_friendship_path %>
-    </div>
   </div>
-  <!-- fermeture container -->
-<%end%>
-<!-- Modal 3 -->
+<!-- fermeture container -->
+</div>
+
+
+
+<!-- Modal 2 end the party -->
 
 
 <!--End Party button--->
@@ -98,7 +74,7 @@
   End the party !
 </button>
 
-<!-- Modal 3-->
+<!-- Modal 2 end the party-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -106,7 +82,7 @@
         <h3 class="modal-title" id="exampleModalLabel">consumption summary:</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <!-- Modal 3 details-->
+      <!-- Modal 2 end the party details-->
 
       <div class="modal-body">
       <%= render '/beverages/list', beverages: @meeting.beverages %>
@@ -118,12 +94,12 @@
       </div>
     <% elsif @alcool_rate < 0.5 %>
       <div class="alert alert-warning" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
-        <span> Great, You're still a respectable person !!! You can drive. but, be careful ! </span>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l, You'll be sober in <%= @time_to_dedrunk%></h2></strong>
+        <span> Great, You're still a respectable person !!! You can drive. but, be careful ! You'll be sober in <%= @time_to_dedrunk %> </span>
       </div>
     <% else %>
       <div class="alert alert-danger" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l, You'll be sober in <%= @time_to_dedrunk%> </h2></strong>
         <span> <strong> STOP ! </strong>
         PLEASE, BE CAREFUL ! Your alcohol rate is high. You can not drive
         for the moment. It is highly recommanded to wait (...attente methode...) minutes or order a uber.
@@ -134,7 +110,6 @@
       <div class="modal-footer">
         <%= link_to "End a party", dashboard_path, class: "btn btn-flat" %>
         <%= link_to "Order an Uber", "http://www.uber.com", class: "btn btn-gradient" %>
-<%# les boutons permettrons de close the party. update meeting en lui passant le end_date de la date actuelle%>
       </div>
     </div>
   </div>
