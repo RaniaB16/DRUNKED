@@ -29,7 +29,7 @@ class User < ApplicationRecord
 
 
   def sex_ratio
-    if sex == "men"
+    if sex == "man"
       0.7
     else
       0.6
