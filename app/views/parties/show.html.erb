@@ -1,7 +1,6 @@
 <div class="show-container">
   <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
 
-<% if @meeting.end_date.nil? %>
  <div class=Show-modal>
 <!-- button link to Modal 1 -->
   <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
@@ -48,24 +47,25 @@
   <div class= "sous-title">
     <h2><%= "My drinking buddies" %></h2>
 </div>
+
 <div class="my-buddies">
   <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-  <% colors = array.sample(current_user.friendships.count)%>
-  <% current_user.friendships.each_with_index do |friendship, index| %>
+  <% colors = array.sample(@party.users.count)%>
+  <% @party.users.each_with_index do |friendship, index| %>
     <div class = "round-buddy <%= colors[index] %>" >
-        <% if friendship.user_two.photo.attached?%>
-          <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
+        <% if friendship.photo.attached?%>
+          <%= cl_image_tag friendship.photo.key, height: 100, width: 100, crop: :fill %>
         <% else %>
-          <%= friendship.user_two.initials %>
+          <%= friendship.initials %>
         <% end %>
       </div>
       <% end %>
-    <div class="round-buddy-2">
-    <%= link_to "+", new_friendship_path %>
-    </div>
   </div>
-  <!-- fermeture container -->
-<%end%>
+<!-- fermeture container -->
+</div>
+
+
+
 <!-- Modal 2 end the party -->
 
 
@@ -94,15 +94,15 @@
       </div>
     <% elsif @alcool_rate < 0.5 %>
       <div class="alert alert-warning" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l, You'll be sober in <%= @time_to_dedrunk%></h2></strong>
         <span> Great, You're still a respectable person !!! You can drive. but, be careful ! You'll be sober in <%= @time_to_dedrunk %> </span>
       </div>
     <% else %>
       <div class="alert alert-danger" id="rate-status" role="alert">
-        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l </h2></strong>
+        <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l, You'll be sober in <%= @time_to_dedrunk%> </h2></strong>
         <span> <strong> STOP ! </strong>
         PLEASE, BE CAREFUL ! Your alcohol rate is high. You can not drive
-        for the moment. You'll be sober in <%= @time_to_dedrunk %>. It is highly recommanded to wait (...attente methode...) minutes or order a uber.
+        for the moment. It is highly recommanded to wait (...attente methode...) minutes or order a uber.
         Otherwise, let's pray God and let Him decide for what happen next. </span>
       </div>
       <% end %>
@@ -110,7 +110,6 @@
       <div class="modal-footer">
         <%= link_to "End a party", dashboard_path, class: "btn btn-flat" %>
         <%= link_to "Order an Uber", "http://www.uber.com", class: "btn btn-gradient" %>
-<%# les boutons permettrons de close the party. update meeting en lui passant le end_date de la date actuelle%>
       </div>
     </div>
   </div>
