@@ -12,9 +12,7 @@
         <% end %>
       </div>
     </div>
-    </div>
-
-
+  </div>
   <div class= "sous-title">
     <h2><%= "My drinking buddies" %></h2>
   </div>
@@ -23,25 +21,18 @@
     <% colors = array.sample(current_user.friendships.count)%>
     <% current_user.friendships.each_with_index do |friendship, index| %>
       <div class = "round-buddy <%= colors[index] %>" >
-
-
         <% if friendship.user_two.photo.attached?%>
           <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
         <% else %>
           <%= friendship.user_two.initials %>
         <% end %>
-
       </div>
     <% end %>
     <div class="round-buddy-2">
-    <%= link_to "+", new_friendship_path %>
+    <%= link_to "+", new_friendship_path, data: { turbolinks: 'false'} %>
     </div>
   </div>
-
-
-
   <div class= "btn-create-party">
-    <%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big" %>
+    <%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big", data: {turbolinks: false} %>
   </div>
-
- </div>
+</div>
