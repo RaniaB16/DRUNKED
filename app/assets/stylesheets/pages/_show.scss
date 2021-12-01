@@ -73,7 +73,7 @@
 
 
 
-.btn-gradient {
+.btn-uber {
   color: white;
   border-radius: 4px;
   font-weight: bold;
@@ -84,7 +84,10 @@
     border: 3px solid black;
     box-shadow: 5px 3px black;
     }
-
+.btn-to-end,
+.btn-uber {
+display:inline-block;
+}
 
  .sous-title{
   display: flex;
@@ -103,3 +106,13 @@ h2 {
 
 }
  }
+
+ .modal-header{
+background-color: #FA7165;
+ }
+#details-drinks-modal {
+  color: inherit;
+  background-color: white;
+  box-shadow: none;
+
+}
