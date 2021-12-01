@@ -20,7 +20,7 @@
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
   background-color: #ECEAFF;
-  color: #7E73FF;
+  box-shadow: 3px 4px #7665db;
   border: 1px solid #7E73FF;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
@@ -71,7 +71,7 @@
 }
 
 .avatar-checked {
-box-shadow: 4px 4px black;
+box-shadow: 4px 4px 4px 4px #fa7165;
 }
 
 .new-friends {
