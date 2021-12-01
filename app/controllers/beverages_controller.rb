@@ -10,26 +10,19 @@ class BeveragesController < ApplicationController
       @beverage = Beverage.new(beverage_params)
       @beverage.drink = @drink
 
-      if @beverage.save
-        PartyChannel.broadcast_to(
-          @party,
-          render_to_string(partial: "buddy", locals: { users: @party.users, party: @party  })
-        )
+      respond_to do |format|
+        if @beverage.save
+          PartyChannel.broadcast_to(
+            @party,
+            render_to_string(partial: "buddy.html", locals: { users: @party.users, party: @party })
+          )
+          format.html { redirect_to request.referer }
+          format.json { render json: json_response }
+        else
+          format.html { render 'parties/show' }
+          format.json
+        end
       end
-
-      # respond_to do |format|
-      #   if @beverage.save
-      #     PartyChannel.broadcast_to(
-      #       @party,
-      #       render_to_string(partial: "buddy", format: ['html'], locals: { friendship: @party.users, party: @party })
-      #     )
-      #     format.html { redirect_to request.referer }
-      #     format.json { render json: json_response }
-      #   else
-      #     format.html { render 'parties/show' }
-      #     format.json
-      #   end
-      # end
     end
     authorize(Beverage)
   end
@@ -37,9 +30,14 @@ class BeveragesController < ApplicationController
   def destroy
     @beverage = Beverage.find(params[:id])
     @meeting = @beverage.meeting
+    @party = @meeting.party
     authorize(@beverage)
     respond_to do |format|
       if @beverage.destroy
+        PartyChannel.broadcast_to(
+          @party,
+          render_to_string(partial: "buddy.html", locals: { users: @party.users, party: @party })
+        )
         format.json { render json: json_response }
       end
     end
