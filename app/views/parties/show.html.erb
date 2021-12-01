@@ -15,8 +15,8 @@
             <h5 class="modal-title" id="addADrinkModalLabel">Choose a drink</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
           <div class="modal-body">
-            <div class="search-form-control form-group mb-5">
               <%= simple_form_for @beverage, data: { beverages_target: 'form', action: 'submit->beverages#send' } do |f| %>
                 <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true, input_html: { data: { action: 'change->beverages#select' } } %>
                 <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
@@ -48,8 +48,6 @@
       <h2><%= "Participants" %></h2>
     </div>
     <div class="my-buddies" data-party-subscription-target = "list">
-      <%# array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-      <%# colors = array.sample(@party.users.count)%>
       <%= render 'beverages/buddy', users: @party.users, party: @party %>
     </div>
 
@@ -72,21 +70,21 @@
             </div>
             <% if @alcool_rate == 0 %>
               <div class="alert alert-success" id="rate-status" role="alert">
-                <strong> <h2> your alcohol rate is <%= @alcool_rate %> g/l </h2></strong>
-                <span> 🎉 FANTASTIC !!! You can drive !</span>
+                <strong> <h2> your alcohol rate is <%= @alcool_rate %> g/l
+                 🎉 FANTASTIC !!! You can drive !</h2></strong>
               </div>
             <% elsif @alcool_rate < 0.5 %>
               <div class="alert alert-warning" id="rate-status" role="alert">
-                <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l, You'll be sober in <%= @time_to_dedrunk%></h2></strong>
-                <span> Great, You're still a respectable person !!! You can drive. but, be careful ! You'll be sober in <%= @time_to_dedrunk %> </span>
+                <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l. Sober in <%= @time_to_dedrunk%> Drive safely ! </h2></strong>
+                <span> Great, You're still a respectable person ! </span>
               </div>
             <% else %>
               <div class="alert alert-danger" id="rate-status" role="alert">
-                <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l, You'll be sober in <%= @time_to_dedrunk%> </h2></strong>
-                <span> <strong> STOP ! </strong>
-                PLEASE, BE CAREFUL ! Your alcohol rate is high. You can not drive
-                for the moment. It is highly recommanded to wait (...attente methode...) minutes or order a uber.
-                Otherwise, let's pray God and let Him decide for what happen next. </span>
+                <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l. Sober in <%= @time_to_dedrunk%>
+                STOP ! YOU CAN NOT DRIVE ! </h2></strong>
+                PLEASE, BE CAREFUL ! Your alcohol rate is high.
+                It is highly recommanded to wait <%= @time_to_dedrunk%> or order a uber.
+                Otherwise, let's pray God and let Him decide for what happen next.
               </div>
             <% end %>
           </div>
