@@ -1,5 +1,5 @@
 <% users.each_with_index do |friendship, index| %>
-  <div class = "position-relative round-buddy <%#= colors[index] %>" >
+  <div class = "position-relative round-buddy <%#= colors[index] %>" id="badges-from-show" >
     <% if friendship.photo.attached? %>
       <%= cl_image_tag friendship.photo.key, height: 100, width: 100, crop: :fill %>
     <% else %>
