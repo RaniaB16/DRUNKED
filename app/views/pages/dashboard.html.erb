@@ -1,4 +1,4 @@
-<div class= "container custom-container" >
+<div class= "container" >
   <div class= "parties">
     <div class= "sous-title-1-dash">
       <h2> My last parties </h2>
@@ -15,41 +15,30 @@
   </div>
   <div class= "sous-title-2-dash">
     <h2><%= "My drinking buddies" %></h2>
-<div class="my-buddies">
-
-    <div class="tag_item d-flex flex-wrap">
-      <%= check_box_tag 'toggle_poubelle' %>
-      <label for="toggle_poubelle">remove buddies</label>
-
-
-
-      <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-      <% colors = array.sample(current_user.friendships.count)%>
-      <% current_user.friendships.each_with_index do |friendship, index| %>
-        <div class = "round-buddy <%= colors[index] %>" >
-          <% if friendship.user_two.photo.attached?%>
-            <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
-          <% else %>
-            <%= friendship.user_two.initials %>
-          <% end %>
-
-          <%= link_to friendship_path(friendship),
-                    method: :delete do  %>
-                    <i class="fas fa-minus-circle custom-circle"></i>
-                    <% end %>
-
+    <div class="my-buddies">
+      <div class="tag_item d-flex flex-wrap">
+        <%= check_box_tag 'toggle_poubelle' %>
+        <label for="toggle_poubelle">remove buddies</label>
+        <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+        <% colors = array.sample(current_user.friendships.count)%>
+        <% current_user.friendships.each_with_index do |friendship, index| %>
+          <div class = "round-buddy <%= colors[index] %>" >
+            <% if friendship.user_two.photo.attached?%>
+              <%= cl_image_tag friendship.user_two.photo.key, height: 100, width: 100, crop: :fill %>
+            <% else %>
+              <%= friendship.user_two.initials %>
+            <% end %>
+            <%= link_to friendship_path(friendship),
+              method: :delete do  %>
+              <i class="fas fa-minus-circle custom-circle"></i>
+              <% end %>
+          </div>
+        <% end %>
+        <div class="round-buddy-2">
+        <%= link_to "+", new_friendship_path, data: { turbolinks: 'false'} %>
         </div>
-      <% end %>
-
-      <div class="round-buddy-2">
-      <%= link_to "+", new_friendship_path, data: { turbolinks: 'false'} %>
       </div>
     </div>
   </div>
-  </div>
-
-
-  <div class= "btn-create-party">
-    <%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big", data: {turbolinks: false} %>
-  </div>
 </div>
+<%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big main-button ", data: {turbolinks: false} %>
