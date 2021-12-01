@@ -76,7 +76,7 @@
           </div>
           <div class="modal-body" >
             <div class="accordion-body" data-beverages-target='list'>
-              <%= render '/beverages/list', beverages: @meeting.beverages %>
+              <%= render '/beverages/list', beverages: @meeting.beverages, allow_delete: false %>
             </div>
             <% if @alcool_rate == 0 %>
               <div class="alert alert-success" id="rate-status" role="alert">
