@@ -81,9 +81,13 @@
 
  .sous-title{
   display: flex;
-  flex-direction: column;
+  flex-direction:center;
    text-align: center;
 .my-buddies {
+  justify-content: space-around;
+  display: flex;
+  flex-direction:center;
   align-items: center;
+  margin-left: 20px;
 }
  }
