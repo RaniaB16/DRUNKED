@@ -53,11 +53,19 @@
 
 
 #end-party-btn {
-  background: #9de9f4;
-  border: 3px solid #6b98bc;
-  box-shadow: 3px 4px #6b98bc;
-  top: auto;
-  margin-left:auto;
+       /* border: 3px solid black; */
+    padding: 8px 24px;
+    display: flex;
+    margin: 95px 141px;
+    /* text-align: center; */
+    justify-content: center;
+}
+
+
+    input {
+    background-color: transparent;
+    border: none;
+    color: white;
 }
 
 #end-party-btn:hover {
