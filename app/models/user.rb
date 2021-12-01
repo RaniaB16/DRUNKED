@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :parties
   has_many :meetings
+  #has_many :parties
+  has_many :parties, through: :meetings
   has_many :beverages, through: :meetings
   has_many :drinks, through: :beverages
   has_many :friendships, class_name: "Friendship", foreign_key: "user_one"
@@ -49,5 +50,17 @@ class User < ApplicationRecord
 
   def initials
     "#{first_name.chr}#{last_name.chr}".upcase
+  end
+
+  def user_alcool_rate(party)
+   meeting = Meeting.find_by(user: self, party: party)
+   meeting.alcool_rate
+  end
+
+  def drunked_color(party)
+    return 'bg-success' if user_alcool_rate(party).zero?
+    return 'bg-warning' if user_alcool_rate(party) < 0.5
+
+    'bg-danger'
   end
 end
