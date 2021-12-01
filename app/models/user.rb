@@ -54,7 +54,7 @@ class User < ApplicationRecord
 
   def user_alcool_rate(party)
    meeting = Meeting.find_by(user: self, party: party)
-   meeting.alcool_rate
+   meeting.sobriaty[:alcool_rate]
   end
 
   def drunked_color(party)
