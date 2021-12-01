@@ -1,4 +1,4 @@
-<div class= "container custom-container" >
+<div class= "container" >
   <div class= "parties">
     <div class= "sous-title-1-dash">
       <h2> My last parties </h2>
@@ -47,9 +47,6 @@
     </div>
   </div>
   </div>
-
-
-  <div class= "btn-create-party">
-    <%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big", data: {turbolinks: false} %>
-  </div>
 </div>
+
+<%= link_to "Let's party !", new_party_path, class: "btn-drunked btn-big main-button ", data: {turbolinks: false} %>
