@@ -18,6 +18,7 @@
     background-color: transparent;
     border: none;
     color: white;
+
 }
     }
 
@@ -40,7 +41,16 @@
   width: 70%;
 }
 
-.btn-big {
-  width: 90%;
-  font-style:bold;
+.main-button {
+    position: fixed;
+    bottom: 75px;
+    width: 93%;
+    margin: 10px;
+}
+
+.main {
+   position: fixed;
+   bottom: 75px;
+   width: 93%;
+   margin: auto;
 }

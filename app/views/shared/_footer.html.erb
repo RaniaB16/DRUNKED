@@ -1,7 +1,7 @@
 <div class="footer">
   <% if user_signed_in? %>
     <div class="footer-links">
-      <a href="/users/edit" class="<%= "active" if controller.controller_name === "registrations" && controller.action_name === "edit" %>">
+      <a href="/dashboard" class="<%= "active" if controller.controller_name === "registrations" && controller.action_name === "edit" %>">
         <div class= "profile">
           <i class="fas fa-user"></i>
         </div>

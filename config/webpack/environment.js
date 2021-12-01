@@ -1,5 +1,8 @@
-const { environment } = require('@rails/webpacker')
 
-// Preventing Babel from transpiling NodeModules packages
+const { resolve } = require('path');
+const { config, environment, Environment } = require('@rails/webpacker');
+const WebpackerPwa = require('webpacker-pwa');
+new WebpackerPwa(config, environment);
+module.exports = environment;
+
 environment.loaders.delete('nodeModules');
-module.exports = environment
