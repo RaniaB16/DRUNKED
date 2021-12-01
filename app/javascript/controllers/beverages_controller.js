@@ -21,6 +21,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         this._updateList(data.list_partial)
+        this._updateEditableList(data.editable_list_partial)
         this._updateRate(data.alcool_rate_partial)
       });
   }
@@ -37,12 +38,17 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         this._updateList(data.list_partial)
+        this._updateEditableList(data.editable_list_partial)
         this._updateRate(data.alcool_rate_partial)
       });
   }
 
   _updateList(html) {
-    this.listTargets.forEach(list => list.innerHTML = html);
+    this.listTargets[1].innerHTML = html;
+  }
+
+  _updateEditableList(html){
+    this.listTargets[0].innerHTML = html;
   }
 
   _updateRate(html) {

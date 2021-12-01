@@ -32,7 +32,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div class="accordion-body" data-beverages-target='list'>
-                    <%= render '/beverages/list', beverages: @meeting.beverages %>
+                    <%= render '/beverages/editable_list', beverages: @meeting.beverages %>
                   </div>
                 </div>
               </div>
@@ -68,7 +68,7 @@
           </div>
           <div class="modal-body" >
             <div class="accordion-body" data-beverages-target='list'>
-              <%= render '/beverages/list', beverages: @meeting.beverages, allow_delete: false %>
+              <%= render '/beverages/list', beverages: @meeting.beverages %>
             </div>
             <% if @alcool_rate == 0 %>
               <div class="alert alert-success" id="rate-status" role="alert">

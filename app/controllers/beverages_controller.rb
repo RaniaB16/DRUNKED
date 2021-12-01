@@ -60,6 +60,7 @@ class BeveragesController < ApplicationController
 
     {
       list_partial: render_to_string(partial: 'beverages/list.html', locals: { beverages: @meeting.beverages }),
+      editable_list_partial: render_to_string(partial: 'beverages/editable_list.html', locals: { beverages: @meeting.beverages }),
       alcool_rate_partial: render_to_string(partial: 'parties/alcool_rate.html', locals: { alcool_rate: @alcool_rate }),
       time_to_dedrunk_partial: @time_to_dedrunk
     }
