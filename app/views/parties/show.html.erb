@@ -1,4 +1,4 @@
-<div class="show-container">
+<div class="show-container" data-controller="party-subscription" data-party-subscription-party-id-value="<%= @party.id %>">
 
   <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
   <div class="show-modals" data-controller="beverages">
@@ -47,18 +47,10 @@
     <div class= "sous-title">
       <h2><%= "Participants" %></h2>
     </div>
-    <div class="my-buddies">
-      <% array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
-      <% colors = array.sample(@party.users.count)%>
-      <% @party.users.each_with_index do |friendship, index| %>
-        <div class = "round-buddy <%= colors[index] %>" >
-          <% if friendship.photo.attached?%>
-            <%= cl_image_tag friendship.photo.key, height: 100, width: 100, crop: :fill %>
-          <% else %>
-            <%= friendship.initials %>
-          <% end %>
-        </div>
-      <% end %>
+    <div class="my-buddies" data-party-subscription-target = "list">
+      <%# array = ["rd-purple", "rd-pink", "rd-corail", "rd-blue", "rd-acqua", "rd-red", "rd-orange", "rd-blue-clr"] %>
+      <%# colors = array.sample(@party.users.count)%>
+      <%= render 'beverages/buddy', users: @party.users, party: @party %>
     </div>
 
     <!--button link to Modal 2--->

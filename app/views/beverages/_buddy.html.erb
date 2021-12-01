@@ -1,0 +1,14 @@
+<% users.each_with_index do |friendship, index| %>
+  <div class = "position-relative round-buddy <%#= colors[index] %>" >
+    <% if friendship.photo.attached? %>
+      <%= cl_image_tag friendship.photo.key, height: 100, width: 100, crop: :fill %>
+    <% else %>
+      <%= friendship.initials %>
+    <% end %>
+    <div class="friendship_alcool_rate top-0 start-100 translate-middle p-2 <%= friendship.drunked_color(party) %> border border-light rounded-pill">
+      <div class="">
+        <%=friendship.user_alcool_rate(party)%>
+      </div>
+    </div>
+  </div>
+<% end %>

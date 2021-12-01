@@ -15,6 +15,6 @@ class PartyPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.users.include?(user)
   end
 end

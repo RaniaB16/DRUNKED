@@ -13,7 +13,7 @@ export default class extends Controller {
     fetch(this.formTarget.action, {
       method: "POST",
       headers: {
-        'Accept': 'application/json',
+        'Accept': 'application/html',
         'X-CSRF-Token': csrfToken()
       },
       body: new FormData(this.formTarget)

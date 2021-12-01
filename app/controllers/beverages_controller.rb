@@ -2,6 +2,7 @@ class BeveragesController < ApplicationController
 
   def create
     @meeting = Meeting.find(params[:beverage][:meeting_id])
+    @party = @meeting.party
     if (params[:beverage][:drink_id]).empty?
       redirect_to request.referer
     else
@@ -9,15 +10,26 @@ class BeveragesController < ApplicationController
       @beverage = Beverage.new(beverage_params)
       @beverage.drink = @drink
 
-      respond_to do |format|
-        if @beverage.save
-          format.html { redirect_to request.referer }
-          format.json { render json: json_response }
-        else
-          format.html { render 'parties/show' }
-          format.json
-        end
+      if @beverage.save
+        PartyChannel.broadcast_to(
+          @party,
+          render_to_string(partial: "buddy", locals: { users: @party.users, party: @party  })
+        )
       end
+
+      # respond_to do |format|
+      #   if @beverage.save
+      #     PartyChannel.broadcast_to(
+      #       @party,
+      #       render_to_string(partial: "buddy", format: ['html'], locals: { friendship: @party.users, party: @party })
+      #     )
+      #     format.html { redirect_to request.referer }
+      #     format.json { render json: json_response }
+      #   else
+      #     format.html { render 'parties/show' }
+      #     format.json
+      #   end
+      # end
     end
     authorize(Beverage)
   end
