@@ -1,5 +1,5 @@
 .btn-drunked {
-    color: white;
+    color: white !important;
     /* border: 3px solid black; */
     background: #fa7165;
     padding: 8px 24px;
@@ -30,6 +30,7 @@
 
 .btn-drunked:active {
   opacity: 0.5;
+  color:white;
 }
 
 
