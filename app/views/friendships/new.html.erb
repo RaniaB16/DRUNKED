@@ -7,24 +7,24 @@
 
   <div class="my-buddies">
     <%= form_tag add_friends_path, method: :get do |f| %>
-    <div class="d-flex flex-wrap justify-content-between align-items-center mt-10 border-red">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mt-10 border-red">
         <% @users.each_with_index do |user, index| %>
-        <%= label_tag user, class: "round-buddy #{colors[index]} #{'avatar-checked' if current_user.friends.include?(user)} new-form" do %>
-        <% if user.photo.attached? %>
-          <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
-        <% else %>
-          <%= user.initials %>
+          <%= label_tag user, class: "round-buddy #{colors[index]} #{'avatar-checked' if current_user.friends.include?(user)} new-form" do %>
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, height: 100, width: 100, crop: :fill %>
+            <% else %>
+              <%= user.initials %>
+            <% end %>
+            <%= check_box_tag "users[]", user.id, checked = current_user.friends.include?(user) %>
+          <% end %>
         <% end %>
-
-          <%= check_box_tag "users[]", user.id, checked = current_user.friends.include?(user) %>
-        <% end %>
-      <% end %>
       </div>
-  </div>
-  <div class="btn-drunked main">
-    <%= submit_tag "Save" %>
-  </div>
-  <% end %>
-  <div id="backdash" class="fas fa-arrow-left">
+      <div class="btn-drunked main">
+        <%= submit_tag "Save" %>
+      </div>
+    <% end %>
+    <div id="backdash" class="fas fa-arrow-left">
       <%= link_to "Back", dashboard_path %>
+    </div>
   </div>
+</div>

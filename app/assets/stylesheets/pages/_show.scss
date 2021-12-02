@@ -53,11 +53,15 @@
 
 #end-party-btn {
        /* border: 3px solid black; */
+       /* border: 3px solid black; */
     padding: 8px 24px;
     display: flex;
-    margin: 95px 141px;
+    margin: 12px 127px;
     /* text-align: center; */
     justify-content: center;
+    /* bottom: 75px; */
+    position: fixed;
+    bottom: 75px;
 }
 
 
