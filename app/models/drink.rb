@@ -7,6 +7,7 @@ class Drink < ApplicationRecord
   validates :alcool_degree, presence: true
 
 
+
   def alcool_density
     return 0.80
   end

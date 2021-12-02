@@ -15,8 +15,10 @@
             <h5 class="modal-title" id="addADrinkModalLabel">Choose a drink</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+    <!-- Test search bar --->
 
-          <div class="modal-body">
+              <!-- fin test search bar --->
+
               <%= simple_form_for @beverage, data: { beverages_target: 'form', action: 'submit->beverages#send' } do |f| %>
                 <%= f.input :drink_id, collection: Drink.all, label_method: :label_drink, value_method: :id, include_blank: 'Select a drink', required: true, input_html: { data: { action: 'change->beverages#select' } } %>
                 <%= f.input :meeting_id, as: :hidden, input_html: { value: @meeting.id } %>
