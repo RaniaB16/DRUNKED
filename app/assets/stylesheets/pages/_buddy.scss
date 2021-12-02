@@ -7,9 +7,10 @@ img {
 }
 
 .friendship_alcool_rate {
-.rounded-badges {
-width: 25px;
-height: 25px;
-text-align: center;
-}
+  .rounded-badges {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  }
 }
