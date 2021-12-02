@@ -1,18 +1,27 @@
 <% if local_assigns[:is_in_modal] == true %>
   <% if @alcool_rate == 0 %>
     <div class="alert alert-success" id="rate-status" role="alert">
-      <strong> <h2> your alcohol rate is <%= @alcool_rate %> g/l
-      🎉 FANTASTIC !!! You can drive !</h2></strong>
+      <strong>
+        <h2> your alcohol rate is <%= @alcool_rate %> g/l
+          🎉 FANTASTIC !!! You can drive !
+        </h2>
+      </strong>
     </div>
   <% elsif @alcool_rate < 0.5 %>
     <div class="alert alert-warning" id="rate-status" role="alert">
-      <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l. Sober in <%= @time_to_dedrunk%> Drive safely ! </h2></strong>
+      <strong>
+        <h2>Alcohol rate <%= @alcool_rate %> g/l. Sober in <%= @time_to_dedrunk%> Drive safely !
+        </h2>
+      </strong>
       <span> Great, You're still a respectable person ! </span>
     </div>
   <% else %>
     <div class="alert alert-danger" id="rate-status" role="alert">
-      <strong> <h2>Alcohol rate <%= @alcool_rate %> g/l. Sober in <%= @time_to_dedrunk%>
-      STOP ! YOU CAN NOT DRIVE ! </h2></strong>
+      <strong>
+        <h2>Alcohol rate <%= @alcool_rate %> g/l. Sober in <%= @time_to_dedrunk%>
+          STOP ! YOU CAN NOT DRIVE !
+        </h2>
+      </strong>
       PLEASE, BE CAREFUL ! Your alcohol rate is high.
       It is highly recommanded to wait <%= @time_to_dedrunk%> or order a uber.
       Otherwise, let's pray God and let Him decide for what happen next.
@@ -29,12 +38,15 @@
       <div class="alert alert-warning" id="rate-status" role="alert" style="text-align: center">
         <strong> <h2>Alcohol rate <%= alcool_rate %> g/l. Sober in <%= @time_to_dedrunk%> Drive safely ! </h2></strong>
         <p> Great, You're still a respectable person !!! You can drive. but, be careful !</p>
-      </div
+      </div>
     <% else %>
       <div class="alert alert-danger" id="rate-status" role="alert" style="text-align: center">
-        <strong> <h2>Alcohol rate <%= alcool_rate %> g/l.  STOP !YOU CANNOT DRIVE OR TEXT YOUR EX!
-        Sober in <%= @time_to_dedrunk%> </h2></strong>
+        <strong>
+          <h2>Alcohol rate <%= alcool_rate %> g/l.  STOP !YOU CANNOT DRIVE OR TEXT YOUR EX!
+          Sober in <%= @time_to_dedrunk%>
+          </h2>
+        </strong>
       </div>
-      <% end %>
+    <% end %>
   </div>
 <% end %>

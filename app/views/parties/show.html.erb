@@ -1,6 +1,7 @@
 <div class="show-container" data-controller="party-subscription" data-party-subscription-party-id-value="<%= @party.id %>">
 
   <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
+
   <div class="show-modals" data-controller="beverages">
     <!-- button link to Modal 1 -->
     <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
