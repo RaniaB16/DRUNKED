@@ -20,9 +20,8 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this._updateList(data.list_partial)
-        this._updateEditableList(data.editable_list_partial)
-        this._updateRate(data.alcool_rate_partial)
+        this._updateList(data.editable_list_partial, data.list_partial)
+        this._updateRate(data.alcool_rate_partial, data.alcool_rate_partial_in_modal)
       });
   }
 
@@ -37,23 +36,19 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this._updateList(data.list_partial)
-        this._updateEditableList(data.editable_list_partial)
-        this._updateRate(data.alcool_rate_partial)
+        this._updateList(data.editable_list_partial, data.list_partial)
+        this._updateRate(data.alcool_rate_partial, data.alcool_rate_partial_in_modal)
       });
   }
 
-  _updateList(html) {
-    this.listTargets[1].innerHTML = html;
+  _updateList(editable_html, html) {
+    this.listTargets[0].innerHTML = editable_html
+    this.listTargets[1].innerHTML = html
   }
 
-  _updateEditableList(html){
-    this.listTargets[0].innerHTML = html;
-  }
-
-  _updateRate(html) {
+  _updateRate(html, modal_partial) {
     const alerts = document.querySelectorAll('.alert');
-    alerts.forEach (alert =>
-    alert.outerHTML = html)
+    alerts[0].outerHTML = html
+    alerts[1].outerHTML = modal_partial
   }
 }

@@ -1,5 +1,4 @@
 class BeveragesController < ApplicationController
-
   def create
     @meeting = Meeting.find(params[:beverage][:meeting_id])
     @party = @meeting.party
@@ -59,9 +58,10 @@ class BeveragesController < ApplicationController
     calculate_rates
 
     {
-      list_partial: render_to_string(partial: 'beverages/list.html', locals: { beverages: @meeting.beverages }),
-      editable_list_partial: render_to_string(partial: 'beverages/editable_list.html', locals: { beverages: @meeting.beverages }),
-      alcool_rate_partial: render_to_string(partial: 'parties/alcool_rate.html', locals: { alcool_rate: @alcool_rate }),
+      editable_list_partial: render_to_string(partial: 'beverages/list.html', locals: { beverages: @meeting.beverages, editable: true }),
+      list_partial: render_to_string(partial: 'beverages/list.html', locals: { beverages: @meeting.beverages, editable: false }),
+      alcool_rate_partial: render_to_string(partial: 'parties/alcool_rate.html', locals: { alcool_rate: @alcool_rate, is_in_modal: false }),
+      alcool_rate_partial_in_modal: render_to_string(partial: 'parties/alcool_rate.html', locals: { alcool_rate: @alcool_rate, is_in_modal: true }),
       time_to_dedrunk_partial: @time_to_dedrunk
     }
   end
