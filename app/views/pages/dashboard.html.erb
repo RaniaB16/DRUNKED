@@ -35,8 +35,9 @@
           </div>
         <% end %>
         <div class="round-buddy-2">
-        <%#= link_to "+", new_friendship_path, data: { turbolinks: 'false'} %>
-          <a href="/friendships/new"> <i class="fas fa-plus"></i></a>
+        <%= link_to new_friendship_path, data: { turbolinks: 'false'} do %>
+         <i class="fas fa-plus"></i>
+          <% end %>
         </div>
       </div>
     </div>
