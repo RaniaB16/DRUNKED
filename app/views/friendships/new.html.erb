@@ -15,12 +15,13 @@
             <% else %>
               <%= user.initials %>
             <% end %>
-            <%= check_box_tag "users[]", user.id, checked = current_user.friends.include?(user) %>
+            <%= check_box_tag "users[]", user.id, checked = current_user.friends.include?(user)  %>
           <% end %>
         <% end %>
       </div>
        <%= submit_tag "Save", class:"btn-drunked main" %>
     <% end %>
+
     <div id="backdash" class="fas fa-arrow-left">
       <%= link_to "Back", dashboard_path %>
     </div>
