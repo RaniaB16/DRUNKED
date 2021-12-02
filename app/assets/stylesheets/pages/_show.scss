@@ -52,16 +52,20 @@
 
 
 #end-party-btn {
-       /* border: 3px solid black; */
-       /* border: 3px solid black; */
-    padding: 8px 24px;
-    display: flex;
-    margin: 12px 127px;
+    /* border: 3px solid black; */
+    /* border: 3px solid black; */
+    // padding: 8px 24px;
+    // display: flex;
+    // margin: 12px 127px;
     /* text-align: center; */
-    justify-content: center;
+    // justify-content: center;
     /* bottom: 75px; */
-    position: fixed;
-    bottom: 75px;
+    // position: fixed;
+    // bottom: 75px;
+  padding: 8px 24px;
+  margin-left: 135px;
+  margin-bottom: 20px;
+  margin-top: -20px;
 }
 
 
@@ -114,9 +118,15 @@ h2 {
  .modal-header{
 background-color: #FA7165;
  }
+
 #details-drinks-modal {
   color: inherit;
   background-color: white;
   box-shadow: none;
+}
 
+#buddies-from-show {
+  justify-content: space-between;
+  margin-right: 35px;
+  margin-left: 12px;
 }

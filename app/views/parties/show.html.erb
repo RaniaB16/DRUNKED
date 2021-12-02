@@ -1,6 +1,7 @@
 <div class="show-container" data-controller="party-subscription" data-party-subscription-party-id-value="<%= @party.id %>">
 
   <%= render 'alcool_rate', alcool_rate: @alcool_rate %>
+
   <div class="show-modals" data-controller="beverages">
     <!-- button link to Modal 1 -->
     <button type="button" class="btn-drunked " id="add-drink-btn" data-bs-toggle="modal" data-bs-target="#addADrinkModal">
@@ -54,7 +55,7 @@
     <div class= "sous-title">
       <h2><%= "Participants" %></h2>
     </div>
-    <div class="my-buddies" data-party-subscription-target = "list">
+    <div class="my-buddies" data-party-subscription-target = "list" id="buddies-from-show">
       <%= render 'beverages/buddy', users: @party.users, party: @party %>
     </div>
 
@@ -68,7 +69,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title" id="exampleModalLabel">consumption summary:</h3>
+            <h3 class="modal-title" style="color: white;" id="exampleModalLabel">Drinks summary</h3>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" >

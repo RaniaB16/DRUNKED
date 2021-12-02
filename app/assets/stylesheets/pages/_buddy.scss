@@ -1,15 +1,17 @@
 
 #badges-from-show{
   margin-right: 40px;
-img {
+  margin-bottom: 15px;
+  img {
   margin-left: 60px;
-}
+  }
 }
 
 .friendship_alcool_rate {
-.rounded-badges {
-width: 25px;
-height: 25px;
-text-align: center;
-}
+  .rounded-badges {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  }
 }
