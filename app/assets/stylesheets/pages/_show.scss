@@ -3,10 +3,13 @@
   align-items: center;
 }
 
+.alcool-rate {
+  margin-bottom: 25px;
+}
 
 #add-drink-btn {
     padding: 16px 24px;
-
+    margin-top: 25px;
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -79,22 +82,29 @@
   opacity: 1;
 }
 
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: unset;
+  border-top: unset;
+}
 
+.btn-to-end {
+  display:inline-block;
+}
 
 .btn-uber {
   color: white;
-  border-radius: 4px;
-  font-weight: bold;
-  background-color: black;
-    padding: 8px 14px;
-    text-decoration: none;
-    margin: 11px;
-    border: 3px solid black;
-    box-shadow: 5px 3px black;
-    }
-.btn-to-end,
-.btn-uber {
-display:inline-block;
+  background-color: rgb(38, 37, 37);
+  padding: 8px 14px;
+  text-decoration: none;
+  margin: 11px;
+  border: 3px solid black;
+  box-shadow: 5px 3px rgb(109, 109, 109);
+  display:inline-block;
+  outline-style: none;
 }
 
  .sous-title{
