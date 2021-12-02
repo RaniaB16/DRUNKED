@@ -1,9 +1,9 @@
-<h2>Change your Drink <%= resource_name.to_s.humanize %></h2>
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs edit">
+  <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -13,7 +13,7 @@
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
-                input_html: { autocomplete: "new-password", class: "maclass"} %>
+                input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
@@ -21,23 +21,6 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "given-name" } %>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "family-name" } %>
-    <%= f.input :sex,
-                as: :radio_buttons,
-                collection: ["man", "women"],
-                required: true,
-                input_html: { autocomplete: "sex" } %>
-    <%= f.input :age,
-                required: true %>
-    <%= f.input :weight,
-                required: true %>
-    <%= f.input :photo, as: :file %>
-
   </div>
 
   <div class="form-actions">
