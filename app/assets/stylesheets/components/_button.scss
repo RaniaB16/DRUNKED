@@ -14,13 +14,14 @@
     font-family: 'Apercu-bold';
     position: sticky;
     font-size: large;
+    outline-style: none;
     input {
     background-color: transparent;
     border: none;
     color: white;
-
+    outline-style: none;
+  }
 }
-    }
 
 .btn_landing {
     display: flex;
