@@ -3,40 +3,46 @@
   align-items: center;
 }
 
-
-#add-drink-btn {
-    padding: 16px 24px;
-
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    margin: 8px;
-    width:300px;
-    position:unset;
-  }
-
-  #myDrinksModal {
-    box-shadow: 0 2px 0 2px #888;
-    color: #55CFB3;
-    border: 3px solid #3CC4C9;
-    background: white;
-    border-radius: 10px;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 20px;
-    width:300px;
-    }
-
-  #addADrinkModal,
-  #addADrinkModal2,
-  #exampleModal {
-    top: auto;
-    bottom: 0;
-    height: auto;
+.alcool-rate {
+  margin-bottom: 25px;
 }
 
+#add-drink-btn {
+  padding: 16px 24px;
+  margin-top: 25px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+  width:300px;
+  position:unset;
+}
+
+  #myDrinksModal {
+  box-shadow: 0 2px 0 2px #888;
+  color: #55CFB3;
+  border: 3px solid #3CC4C9;
+  background: white;
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  width:300px;
+}
+
+#addADrinkModal,
+#addADrinkModal2,
+#exampleModal {
+  top: auto;
+  bottom: 0;
+  height: auto;
+}
+
+#addADrinkModalLabel {
+  color: white;
+}
 
  #rate-status {
   padding: 16px 24px;
@@ -69,51 +75,57 @@
 }
 
 
-    input {
-    background-color: transparent;
-    border: none;
-    color: white;
+input {
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 
 #end-party-btn:hover {
   opacity: 1;
 }
 
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: unset;
+  border-top: unset;
+}
 
+.btn-to-end {
+  display:inline-block;
+}
 
 .btn-uber {
   color: white;
-  border-radius: 4px;
-  font-weight: bold;
-  background-color: black;
-    padding: 8px 14px;
-    text-decoration: none;
-    margin: 11px;
-    border: 3px solid black;
-    box-shadow: 5px 3px black;
-    }
-.btn-to-end,
-.btn-uber {
-display:inline-block;
+  background-color: rgb(38, 37, 37);
+  padding: 8px 14px;
+  text-decoration: none;
+  margin: 11px;
+  border: 3px solid black;
+  box-shadow: 5px 3px rgb(109, 109, 109);
+  display:inline-block;
+  outline-style: none;
 }
 
  .sous-title{
   display: flex;
   flex-direction:center;
   margin-left: 20px;
-.my-buddies {
-  justify-content: space-around;
-  display: flex;
-  flex-direction:center;
-  align-items: center;
+  .my-buddies {
+    justify-content: space-around;
+    display: flex;
+    flex-direction:center;
+    align-items: center;
+  }
+  h2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 80px;
+  }
 }
-h2 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin: 0 80px;
-
-}
- }
 
  .modal-header{
 background-color: #FA7165;
