@@ -4,3 +4,9 @@
   min-height:100vh;
   margin-bottom: 10vh;
 }
+
+body#sessions-new .main_wrapper,
+body#pages-landing .main_wrapper,
+body#registrations-new .main_wrapper {
+    margin-bottom: 0;
+}

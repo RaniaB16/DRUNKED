@@ -1,48 +1,46 @@
-<h2>Sign up</h2>
+<div class="container p-5">
+  <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :sex,
-                as: :radio_buttons,
-                collection: ['man', 'woman'],
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "given-name" } %>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "family-name" } %>
-    <%= f.input :sex,
-                as: :radio_buttons,
-                collection: ["man", "women"],
-                required: true,
-                input_html: { autocomplete: "sex" } %>
-    <%= f.input :age,
-                required: true %>
-    <%= f.input :weight,
-                required: true %>
-    <%= f.input :photo, as: :file %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "given-name" } %>
+      <%= f.input :last_name,
+                  required: true,
+                  input_html: { autocomplete: "family-name" } %>
+      <%= f.input :sex,
+                  as: :radio_buttons,
+                  collection: ["man", "women"],
+                  required: true,
+                  input_html: { autocomplete: "sex" } %>
+      <%= f.input :age,
+                  required: true %>
+      <%= f.input :weight,
+                  required: true %>
+      <%= f.input :photo, as: :file %>
 
+    </div>
+
+    <div class="form-actions btn btn-secondary">
+      <%= f.button :submit, "Sign up", style: "color: #FFFFFF;" %>
+    </div>
+  <% end %>
+  <div class="mt-3">
+    <%= render "devise/shared/links" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
