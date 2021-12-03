@@ -40,12 +40,13 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
   </head>
 
-  <body>
+
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <div class="main_wrapper">
-      <%= render 'shared/navbar' unless action_name == "landing" || controller_name == 'sessions' %>
+      <%= render 'shared/navbar' unless action_name == "landing" || controller_name == 'sessions' || controller_name =='registrations' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
-      <%= render 'shared/footer' unless action_name == "landing" || controller_name == 'sessions' %>
+      <%= render 'shared/footer' unless action_name == "landing" || controller_name == 'sessions' || controller_name =='registrations' %>
     </div>
   </body>
 </html>
