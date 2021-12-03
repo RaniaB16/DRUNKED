@@ -24,12 +24,14 @@
     }
   }
 }
+
 .footer-links {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
+
 .footer-links a {
   text-decoration: none;
   padding: 0px 10px;
@@ -54,13 +56,11 @@
   width: 50px;
 }
 
-
-
 i.fas.fa-user {
-    font-size: 35px;
-    color: black;
-    &:active {
-      color: red;
+  font-size: 35px;
+  color: black;
+  &:active {
+    color: red;
     }
 }
 

@@ -1,22 +1,21 @@
 .navbar-lewagon {
-    display: flex;
-    justify-content: space-between;
-    background: white;
-    align-items: center;
-    padding: 10px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-    color: black;
-    margin-bottom: 30px;
-    text-decoration: none;
-    position:sticky;
-    top:0;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  color: black;
+  margin-bottom: 30px;
+  text-decoration: none;
+  position:sticky;
+  top:0;
+}
 
-    }
-  .navbar-lewagon a {
-    text-decoration: none;
-    color: black
-  }
-
+.navbar-lewagon a {
+  text-decoration: none;
+  color: black
+}
 
 .navbar-brand {
   color: white;
@@ -41,7 +40,6 @@
   color: #55CFB3;
   align-items: center;
   margin: 0px;
-
 }
 
 .Welcome a {
@@ -53,7 +51,6 @@
   color: black;
 }
 
-
 .navbar-lewagon h1 {
     color: black;
     text-align: right;
@@ -64,7 +61,7 @@
 
 .round-nav {
   text-decoration: none;
-    /* border-radius: 50%; */
+  /* border-radius: 50%; */
   border: black 5px;
   font-weight: normal;
   font-family: "Work Sans", "Quicksand", "sans-serif";

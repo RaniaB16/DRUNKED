@@ -1,20 +1,20 @@
 .btn-drunked {
-    color: white !important;
-    /* border: 3px solid black; */
-    background: #fa7165;
-    padding: 8px 24px;
-    border-radius: 0;
-    text-decoration: none;
-    display: flex;
-    margin: 11px;
-    /* text-align: center; */
-    border: 3px solid #b34e46;
-    justify-content: center;
-    box-shadow: 5px 3px #b34e46;
-    font-family: 'Apercu-bold';
-    position: sticky;
-    font-size: large;
-    outline-style: none;
+  color: white !important;
+  /* border: 3px solid black; */
+  background: #fa7165;
+  padding: 8px 24px;
+  border-radius: 0;
+  text-decoration: none;
+  display: flex;
+  margin: 11px;
+  /* text-align: center; */
+  border: 3px solid #b34e46;
+  justify-content: center;
+  box-shadow: 5px 3px #b34e46;
+  font-family: 'Apercu-bold';
+  position: sticky;
+  font-size: large;
+  outline-style: none;
     input {
     background-color: transparent;
     border: none;
@@ -24,16 +24,15 @@
 }
 
 .btn_landing {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }
 
 .btn-drunked:active {
   opacity: 0.5;
   color:white;
 }
-
 
 .btn-small {
   width: 25%;
@@ -44,16 +43,16 @@
 }
 
 .main-button {
-    position: fixed;
-    bottom: 75px;
-    width: 93%;
-    margin: auto;
+  position: fixed;
+  bottom: 75px;
+  width: 93%;
+  margin: auto;
 }
 
 .main {
-   position: fixed;
-   bottom: 75px;
-   width: 93%;
-   margin: auto;
-   padding: 15px;
+  position: fixed;
+  bottom: 75px;
+  width: 93%;
+  margin: auto;
+  padding: 15px;
 }
