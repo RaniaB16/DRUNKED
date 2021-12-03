@@ -1,17 +1,22 @@
+// avatar size
+
 .avatar {
   width: 40px;
   border-radius: 50%;
 }
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;
 }
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
 .avatar-square {
   width: 40px;
   border-radius: 0px;
@@ -19,6 +24,7 @@
   border: white 1px solid;
 }
 
+// avatar color
 
 .rd-purple {
   background-color: #e2afff;
@@ -52,13 +58,13 @@
   background-color: #fe6d73;
 }
 
+// avatar img
+
 .round-buddy img {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-
 }
-
 
 .round-nav img {
   border-radius: 50%;
